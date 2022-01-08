@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../ValueNotifier/homepage_notifier.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -10,40 +12,48 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> myArray = [1, 2, 3, 4, 5, 0];
   @override
   Widget build(BuildContext context) {
-    print(myArray);
+    print(homePageNotifier.myArray.value);
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Container(
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width * 0.75 + 2,
-            height: ((MediaQuery.of(context).size.height * 0.75) / 3) *
-                    (myArray.length / 3) +
-                2,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent),
-              borderRadius: BorderRadius.circular(15.00),
-            ),
-            child: Container(
-                color: Colors.transparent,
-                width: MediaQuery.of(context).size.width * 0.75,
-                height: ((MediaQuery.of(context).size.height * 0.75) / 3) *
-                    (myArray.length / 3),
-                alignment: Alignment.bottomLeft,
-                child: Wrap(
-                  children: [
-                    for (var i = 0; i < myArray.length; i++)
-                      buildContainers(myArray[i]),
-                  ],
-                )),
-          ),
-        ));
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: ValueListenableBuilder<List<int>>(
+          valueListenable: homePageNotifier.myArray,
+          builder: (context, value, _) {
+            return buildBody();
+          }),
+    );
   }
+
+  buildBody() => Center(
+        child: Container(
+          alignment: Alignment.center,
+          width: MediaQuery.of(context).size.width * 0.75 + 2,
+          height: ((MediaQuery.of(context).size.height * 0.75) / 3) *
+                  (homePageNotifier.myArray.value.length / 3) +
+              2,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.blueAccent),
+            borderRadius: BorderRadius.circular(15.00),
+          ),
+          child: Container(
+              color: Colors.transparent,
+              width: MediaQuery.of(context).size.width * 0.75,
+              height: ((MediaQuery.of(context).size.height * 0.75) / 3) *
+                  (homePageNotifier.myArray.value.length / 3),
+              alignment: Alignment.bottomLeft,
+              child: Wrap(
+                children: [
+                  for (var i = 0;
+                      i < homePageNotifier.myArray.value.length;
+                      i++)
+                    buildContainers(homePageNotifier.myArray.value[i]),
+                ],
+              )),
+        ),
+      );
 
   buildContainers(int value) {
     switch (value) {
@@ -65,14 +75,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget buildColorContainer(int index, Color myColor) => GestureDetector(
         onTap: () {
           setState(() {
-            int zeroIndex = myArray.indexOf(0);
-            if ((myArray.indexOf(index) == zeroIndex - 1 ||
-                    myArray.indexOf(index) == zeroIndex + 1 ||
-                    myArray.indexOf(index) == zeroIndex - 3 ||
-                    myArray.indexOf(index) == zeroIndex + 3) &&
-                (zeroIndex != 3 || myArray.indexOf(index) != 2)) {
-              myArray[myArray.indexOf(index)] = 0;
-              myArray[zeroIndex] = index;
+            int zeroIndex = homePageNotifier.myArray.value.indexOf(0);
+            if ((homePageNotifier.myArray.value.indexOf(index) ==
+                        zeroIndex - 1 ||
+                    homePageNotifier.myArray.value.indexOf(index) ==
+                        zeroIndex + 1 ||
+                    homePageNotifier.myArray.value.indexOf(index) ==
+                        zeroIndex - 3 ||
+                    homePageNotifier.myArray.value.indexOf(index) ==
+                        zeroIndex + 3) &&
+                (zeroIndex != 3 ||
+                    homePageNotifier.myArray.value.indexOf(index) != 2) &&
+                ((homePageNotifier.myArray.value.indexOf(index) != 3 ||
+                    zeroIndex != 2))) {
+              homePageNotifier.myArray
+                  .value[homePageNotifier.myArray.value.indexOf(index)] = 0;
+              homePageNotifier.myArray.value[zeroIndex] = index;
             }
           });
         },
