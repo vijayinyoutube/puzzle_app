@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> myArray = [1, 2, 3, 4,5,6,0];
+  List<int> myArray = [1, 2, 3, 4, 5, 0];
   @override
   Widget build(BuildContext context) {
     print(myArray);
@@ -25,23 +25,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
             color: Colors.lightBlue,
             width: MediaQuery.of(context).size.width * 0.75,
-            height: MediaQuery.of(context).size.height * 0.75,
+            height: ((MediaQuery.of(context).size.width * 0.75) / 3) *(myArray.length / 3),
             alignment: Alignment.bottomLeft,
             child: Wrap(
               children: [
-                for (var i = 0; i < 4; i++) buildContainers(myArray[i]),
-                // myArray[0] == 1
-                //     ? buildColorContainer(0, Colors.red)
-                //     : buildWhiteContainer(),
-                // myArray[1] == 1
-                //     ? buildColorContainer(1, Colors.blue)
-                //     : buildWhiteContainer(),
-                // myArray[2] == 1
-                //     ? buildColorContainer(2, Colors.green)
-                //     : buildWhiteContainer(),
-                // myArray[3] == 1
-                //     ? buildColorContainer(3, Colors.orange)
-                //     : buildWhiteContainer(),
+                for (var i = 0; i < myArray.length; i++)
+                  buildContainers(myArray[i]),
               ],
             )),
       ),
@@ -61,21 +50,21 @@ class _MyHomePageState extends State<MyHomePage> {
             print("Container Clicked:$index");
             myArray[myArray.indexOf(index)] = 0;
 
-            myArray[zeroIndex] =index;
+            myArray[zeroIndex] = index;
             // myArray = [myArray[0], myArray[1], myArray[2], myArray[3]];
             print(myArray);
           });
         },
         child: Container(
           color: myColor,
-          width: (MediaQuery.of(context).size.width * 0.75) / 2,
-          height: (MediaQuery.of(context).size.height * 0.75) / 2,
+          width: (MediaQuery.of(context).size.width * 0.75) / 3,
+          height: (MediaQuery.of(context).size.width * 0.75) / 3,
         ),
       );
   Widget buildWhiteContainer() => Container(
         color: Colors.white,
-        width: (MediaQuery.of(context).size.width * 0.75) / 2,
-        height: (MediaQuery.of(context).size.height * 0.75) / 2,
+        width: (MediaQuery.of(context).size.width * 0.75) / 3,
+        height: (MediaQuery.of(context).size.width * 0.75) / 3,
       );
 
   findZero() {
@@ -94,7 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
         return buildColorContainer(value, Colors.blue);
       case 3:
         return buildColorContainer(value, Colors.green);
-        
+      case 4:
+        return buildColorContainer(value, Colors.indigo);
+      case 5:
+        return buildColorContainer(value, Colors.pink);
       case 0:
         return buildColorContainer(value, Colors.white);
     }
