@@ -46,7 +46,7 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
 
 ## Dependencies
 ```pubspec.yaml
-  
+  hexcolor: ^2.0.5  
 ```
 
 
