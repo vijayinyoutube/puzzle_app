@@ -18,8 +18,10 @@ class BuildBodyClass extends StatelessWidget {
   buildBody(BuildContext context) => Center(
         child: Container(
           alignment: Alignment.center,
-          width: (100*homePageNotifier.n.toDouble()+HomePageRepo().getPaddingSPace(homePageNotifier.n)),
-          height: (100*homePageNotifier.n.toDouble()+HomePageRepo().getPaddingSPace(homePageNotifier.n)),
+          width: (100 * homePageNotifier.n.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n)),
+          height: (100 * homePageNotifier.n.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n)),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.blueAccent),
             borderRadius: BorderRadius.circular(15.00),
