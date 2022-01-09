@@ -27,11 +27,9 @@ class BuildContainerClass extends StatelessWidget {
           onEnter: (PointerEvent event) {
             homePageNotifier.updateHover();
             hoverIndex = index;
-            print("object");
           },
           onExit: (PointerEvent event) {
             homePageNotifier.updateHover();
-            hoverIndex = homePageNotifier.myArray.value.indexOf(0);
           },
           child: GestureDetector(
             onTap: () {
@@ -57,10 +55,6 @@ class BuildContainerClass extends StatelessWidget {
                       : const SizedBox()),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.00),
-                  // border: Border.all(
-                  //   color: Colors.white,
-                  //   width: 3,
-                  // ),
                   color: index == 0
                       ? Colors.transparent
                       : lastClicked == index
@@ -75,12 +69,6 @@ class BuildContainerClass extends StatelessWidget {
       );
 
   isAdjacent(int index) {
-    // print((homePageNotifier.myArray.value.indexOf(index) == zeroIndex - 1 ||
-    //     homePageNotifier.myArray.value.indexOf(index) == zeroIndex + 1 ||
-    //     homePageNotifier.myArray.value.indexOf(index) ==
-    //         zeroIndex - homePageNotifier.n ||
-    //     homePageNotifier.myArray.value.indexOf(index) ==
-    //         zeroIndex + homePageNotifier.n));
     return (homePageNotifier.myArray.value.indexOf(index) == zeroIndex - 1 ||
         homePageNotifier.myArray.value.indexOf(index) == zeroIndex + 1 ||
         homePageNotifier.myArray.value.indexOf(index) ==
@@ -90,15 +78,6 @@ class BuildContainerClass extends StatelessWidget {
   }
 
   isNotDiagonallyOpposite(int index) {
-    // print(((zeroIndex % (homePageNotifier.n) != 0 ||
-    //         (homePageNotifier.myArray.value.indexOf(index) + 1) %
-    //                 (homePageNotifier.n) !=
-    //             0) &&
-    //     ((homePageNotifier.myArray.value.indexOf(index) %
-    //                 (homePageNotifier.n) !=
-    //             0 ||
-    //         (zeroIndex + 1) % (homePageNotifier.n) != 0))));
-
     return homePageNotifier.n != 2
         ? ((zeroIndex % (homePageNotifier.n) != 0 ||
                 (homePageNotifier.myArray.value.indexOf(index) + 1) %
@@ -113,19 +92,4 @@ class BuildContainerClass extends StatelessWidget {
             (zeroIndex != 1 ||
                 homePageNotifier.myArray.value.indexOf(index) != 2));
   }
-
-  // isDiagonallyOpposite2(int index) {
-  //   print(((zeroIndex % (homePageNotifier.n) != 0 ||
-  //           (homePageNotifier.myArray.value.indexOf(index) + 1) %
-  //                   (homePageNotifier.n) !=
-  //               0) &&
-  //       ((homePageNotifier.myArray.value.indexOf(index) %
-  //                   (homePageNotifier.n) !=
-  //               0 ||
-  //           (zeroIndex + 1) % (homePageNotifier.n) != 0))));
-
-  //   return ((zeroIndex != 2 ||
-  //           homePageNotifier.myArray.value.indexOf(index) + 1 != 2) &&
-  //       (zeroIndex != 1 || homePageNotifier.myArray.value.indexOf(index) != 2));
-  // }
 }
