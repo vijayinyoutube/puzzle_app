@@ -22,27 +22,8 @@ class BuildContainerClass extends StatelessWidget {
           onTap: () {
             lastClicked = index;
             zeroIndex = homePageNotifier.myArray.value.indexOf(0);
-         
-            if ((homePageNotifier.myArray.value.indexOf(index) ==
-                        zeroIndex - 1 ||
-                    homePageNotifier.myArray.value.indexOf(index) ==
-                        zeroIndex + 1 ||
-                    homePageNotifier.myArray.value.indexOf(index) ==
-                        zeroIndex - homePageNotifier.n ||
-                    homePageNotifier.myArray.value.indexOf(index) ==
-                        zeroIndex + homePageNotifier.n) &&
 
-                (zeroIndex % (homePageNotifier.n) != 0 ||
-                    (homePageNotifier.myArray.value.indexOf(index) + 1) %
-                            (homePageNotifier.n) !=
-                        0) &&
-
-                ((homePageNotifier.myArray.value.indexOf(index) 
-                             % (homePageNotifier.n) !=
-                        0 ||
-                    (zeroIndex + 1) % (homePageNotifier.n) != 0))) 
-                    
-                    {
+            if (isAdjacent(index) && isNotDiagonallyOpposite(index)) {
               homePageNotifier.updateArray(
                   homePageNotifier.myArray.value.indexOf(index), 0);
               homePageNotifier.updateArray(zeroIndex, index);
@@ -73,4 +54,59 @@ class BuildContainerClass extends StatelessWidget {
           ),
         ),
       );
+
+  isAdjacent(int index) {
+    // print((homePageNotifier.myArray.value.indexOf(index) == zeroIndex - 1 ||
+    //     homePageNotifier.myArray.value.indexOf(index) == zeroIndex + 1 ||
+    //     homePageNotifier.myArray.value.indexOf(index) ==
+    //         zeroIndex - homePageNotifier.n ||
+    //     homePageNotifier.myArray.value.indexOf(index) ==
+    //         zeroIndex + homePageNotifier.n));
+    return (homePageNotifier.myArray.value.indexOf(index) == zeroIndex - 1 ||
+        homePageNotifier.myArray.value.indexOf(index) == zeroIndex + 1 ||
+        homePageNotifier.myArray.value.indexOf(index) ==
+            zeroIndex - homePageNotifier.n ||
+        homePageNotifier.myArray.value.indexOf(index) ==
+            zeroIndex + homePageNotifier.n);
+  }
+
+  isNotDiagonallyOpposite(int index) {
+    // print(((zeroIndex % (homePageNotifier.n) != 0 ||
+    //         (homePageNotifier.myArray.value.indexOf(index) + 1) %
+    //                 (homePageNotifier.n) !=
+    //             0) &&
+    //     ((homePageNotifier.myArray.value.indexOf(index) %
+    //                 (homePageNotifier.n) !=
+    //             0 ||
+    //         (zeroIndex + 1) % (homePageNotifier.n) != 0))));
+
+    return homePageNotifier.n != 2
+        ? ((zeroIndex % (homePageNotifier.n) != 0 ||
+                (homePageNotifier.myArray.value.indexOf(index) + 1) %
+                        (homePageNotifier.n) !=
+                    0) &&
+            ((homePageNotifier.myArray.value.indexOf(index) %
+                        (homePageNotifier.n) !=
+                    0 ||
+                (zeroIndex + 1) % (homePageNotifier.n) != 0)))
+        : ((zeroIndex != 2 ||
+                homePageNotifier.myArray.value.indexOf(index) + 1 != 2) &&
+            (zeroIndex != 1 ||
+                homePageNotifier.myArray.value.indexOf(index) != 2));
+  }
+
+  // isDiagonallyOpposite2(int index) {
+  //   print(((zeroIndex % (homePageNotifier.n) != 0 ||
+  //           (homePageNotifier.myArray.value.indexOf(index) + 1) %
+  //                   (homePageNotifier.n) !=
+  //               0) &&
+  //       ((homePageNotifier.myArray.value.indexOf(index) %
+  //                   (homePageNotifier.n) !=
+  //               0 ||
+  //           (zeroIndex + 1) % (homePageNotifier.n) != 0))));
+
+  //   return ((zeroIndex != 2 ||
+  //           homePageNotifier.myArray.value.indexOf(index) + 1 != 2) &&
+  //       (zeroIndex != 1 || homePageNotifier.myArray.value.indexOf(index) != 2));
+  // }
 }
