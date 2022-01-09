@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../Repository/homepage.dart';
+import '../../ValueNotifier/homepage_notifier.dart';
 import '../Widgets/1body.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,6 +13,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    HomePageRepo().setArray(homePageNotifier.n * homePageNotifier.n);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

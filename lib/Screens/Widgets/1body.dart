@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 import '2container.dart';
 
@@ -16,11 +17,9 @@ class BuildBodyClass extends StatelessWidget {
 
   buildBody(BuildContext context) => Center(
         child: Container(
-          alignment: Alignment.bottomLeft,
-          width: MediaQuery.of(context).size.width * 0.75 + 2,
-          height: ((MediaQuery.of(context).size.height * 0.75) / 3) *
-                  (homePageNotifier.myArray.value.length / 3) +
-              2,
+          alignment: Alignment.center,
+          width: (100*homePageNotifier.n.toDouble()+HomePageRepo().getPaddingSPace(homePageNotifier.n)),
+          height: (100*homePageNotifier.n.toDouble()+HomePageRepo().getPaddingSPace(homePageNotifier.n)),
           decoration: BoxDecoration(
             border: Border.all(color: Colors.blueAccent),
             borderRadius: BorderRadius.circular(15.00),
