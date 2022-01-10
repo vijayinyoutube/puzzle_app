@@ -88,6 +88,7 @@ class LeftTextAreaClass extends StatelessWidget {
       );
 
   Widget buildFontStyleDropDownMenu() => DropdownButton<String>(
+        alignment: Alignment.center,
         value: HomePageRepo().levels[homePageNotifier.n.value],
         underline: Container(height: 2, color: Colors.white),
         icon: const Icon(
@@ -98,6 +99,7 @@ class LeftTextAreaClass extends StatelessWidget {
         elevation: 16,
         items: HomePageRepo().levels.entries.map((items) {
           return DropdownMenuItem<String>(
+            alignment: Alignment.center,
             value: items.value,
             child: Text(
               items.value,
