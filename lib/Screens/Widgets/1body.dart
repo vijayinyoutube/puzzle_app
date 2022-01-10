@@ -11,16 +11,13 @@ class BuildBodyClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Padding(
-      padding: EdgeInsets.symmetric(horizontal:( 10 *( homePageNotifier.n.value.toDouble()))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Expanded(flex: 3, child: LeftTextAreaClass()),
-          BuildPuzzleContainer(),
-         
-        ],
-      ),
-    ));
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            LeftTextAreaClass(),
+            BuildPuzzleContainer(),
+           
+          ],
+        ));
   }
 }
