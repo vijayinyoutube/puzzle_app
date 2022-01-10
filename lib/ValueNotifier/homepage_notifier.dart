@@ -4,6 +4,7 @@ class HomePageNotifier with ChangeNotifier {
   ValueNotifier<List<int>> myArray = ValueNotifier([]);
   ValueNotifier<int> n = ValueNotifier(4);
   ValueNotifier<bool> isHovering = ValueNotifier(false);
+  int lastClicked = 0;
 
   void updateArray(int index, int value) {
     myArray.value[index] = value;
@@ -30,6 +31,7 @@ class HomePageNotifier with ChangeNotifier {
     n.value = newVal.value;
     n.notifyListeners();
     setArray();
+    lastClicked = myArray.value.length;
     myArray.notifyListeners();
   }
 }

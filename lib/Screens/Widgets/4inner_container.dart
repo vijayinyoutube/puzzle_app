@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../Constants/constants.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
-import 'package:hexcolor/hexcolor.dart';
-
-import '../../Widgets/g_widgets.dart';
 
 class BuildContainerClass extends StatelessWidget {
   const BuildContainerClass({Key? key, required this.value}) : super(key: key);
 
   final int value;
   static int zeroIndex = homePageNotifier.myArray.value.indexOf(0);
-  static int lastClicked = 0;
+  
   static int hoverIndex = 0;
 
   @override
@@ -38,7 +35,7 @@ class BuildContainerClass extends StatelessWidget {
               zeroIndex = homePageNotifier.myArray.value.indexOf(0);
 
               if (isAdjacent(index) && isNotDiagonallyOpposite(index)) {
-                lastClicked = index;
+                homePageNotifier.lastClicked = index;
                 homePageNotifier.updateArray(
                     homePageNotifier.myArray.value.indexOf(index), 0);
                 homePageNotifier.updateArray(zeroIndex, index);
@@ -85,7 +82,7 @@ class BuildContainerClass extends StatelessWidget {
                   borderRadius: kBorder,
                   color: index == 0
                       ? Colors.transparent
-                      : lastClicked == index
+                      : homePageNotifier.lastClicked == index
                           ? secondaryColor
                           : homePageNotifier.isHovering.value &&
                                   hoverIndex == index

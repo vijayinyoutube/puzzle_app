@@ -12,7 +12,7 @@ class BuildBodyClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
         child: Padding(
-      padding: EdgeInsets.symmetric(horizontal:( 25 *( homePageNotifier.n.value.toDouble())),vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal:( 10 *( homePageNotifier.n.value.toDouble()))),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
