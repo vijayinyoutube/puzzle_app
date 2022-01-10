@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../Constants/constants.dart';
+import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 
 class BuildContainerClass extends StatelessWidget {
@@ -8,7 +9,7 @@ class BuildContainerClass extends StatelessWidget {
 
   final int value;
   static int zeroIndex = homePageNotifier.myArray.value.indexOf(0);
-  
+
   static int hoverIndex = 0;
 
   @override
@@ -35,6 +36,7 @@ class BuildContainerClass extends StatelessWidget {
               zeroIndex = homePageNotifier.myArray.value.indexOf(0);
 
               if (isAdjacent(index) && isNotDiagonallyOpposite(index)) {
+                homePageNotifier.updateMoves();
                 homePageNotifier.lastClicked = index;
                 homePageNotifier.updateArray(
                     homePageNotifier.myArray.value.indexOf(index), 0);
