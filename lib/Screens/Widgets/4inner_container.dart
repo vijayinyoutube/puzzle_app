@@ -99,21 +99,21 @@ class BuildContainerClass extends StatelessWidget {
     return (homePageNotifier.myArray.value.indexOf(index) == zeroIndex - 1 ||
         homePageNotifier.myArray.value.indexOf(index) == zeroIndex + 1 ||
         homePageNotifier.myArray.value.indexOf(index) ==
-            zeroIndex - homePageNotifier.n ||
+            zeroIndex - homePageNotifier.n.value ||
         homePageNotifier.myArray.value.indexOf(index) ==
-            zeroIndex + homePageNotifier.n);
+            zeroIndex + homePageNotifier.n.value);
   }
 
   isNotDiagonallyOpposite(int index) {
     return homePageNotifier.n != 2
-        ? ((zeroIndex % (homePageNotifier.n) != 0 ||
+        ? ((zeroIndex % (homePageNotifier.n.value) != 0 ||
                 (homePageNotifier.myArray.value.indexOf(index) + 1) %
-                        (homePageNotifier.n) !=
+                        (homePageNotifier.n.value) !=
                     0) &&
             ((homePageNotifier.myArray.value.indexOf(index) %
-                        (homePageNotifier.n) !=
+                        (homePageNotifier.n.value) !=
                     0 ||
-                (zeroIndex + 1) % (homePageNotifier.n) != 0)))
+                (zeroIndex + 1) % (homePageNotifier.n.value) != 0)))
         : ((zeroIndex != 2 ||
                 homePageNotifier.myArray.value.indexOf(index) + 1 != 2) &&
             (zeroIndex != 1 ||

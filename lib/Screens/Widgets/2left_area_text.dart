@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:puzzle_app/Constants/constants.dart';
 
 import '../../Repository/homepage.dart';
+import '../../ValueNotifier/homepage_notifier.dart';
 import '../../Widgets/g_widgets.dart';
 
 class LeftTextAreaClass extends StatelessWidget {
@@ -39,8 +40,9 @@ class LeftTextAreaClass extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),
-                secondaryColor,()=>HomePageRepo().setArray()),
-            WidthSpacer(myWidth: 15.00),
+                secondaryColor,
+                () => homePageNotifier.setArray()),
+            const WidthSpacer(myWidth: 15.00),
             buildButtom(
                 250,
                 const Icon(
@@ -54,20 +56,22 @@ class LeftTextAreaClass extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),
-                primaryColor,()=>printData()),
+                primaryColor,
+                () =>  homePageNotifier.updateNVal((ValueNotifier<int>))),
           ],
         )
       ],
     );
   }
 
-  Widget buildButtom(
-          double width, Widget child1, Widget child2, Color containerColor,Function myFunction) =>
+  Widget buildButtom(double width, Widget child1, Widget child2,
+          Color containerColor, Function myFunction) =>
       GestureDetector(
-        onTap: ()=>myFunction(),
+        onTap: () => myFunction(),
         child: Container(
           width: width,
-          decoration: BoxDecoration(borderRadius: kBorder, color: containerColor),
+          decoration:
+              BoxDecoration(borderRadius: kBorder, color: containerColor),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -78,7 +82,5 @@ class LeftTextAreaClass extends StatelessWidget {
         ),
       );
 
-  printData() {
-    print("Hai");
-  }
+
 }

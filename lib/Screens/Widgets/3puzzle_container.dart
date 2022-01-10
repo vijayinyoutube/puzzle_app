@@ -18,10 +18,10 @@ class BuildPuzzleContainer extends StatelessWidget {
 
   Widget puzzleContainer() => Container(
         alignment: Alignment.center,
-        width: (100 * homePageNotifier.n.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n)),
-        height: (100 * homePageNotifier.n.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n)),
+        width: (100 * homePageNotifier.n.value.toDouble() +
+            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+        height: (100 * homePageNotifier.n.value.toDouble() +
+            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent),
           borderRadius: kBorder

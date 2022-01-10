@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePageNotifier with ChangeNotifier {
   ValueNotifier<List<int>> myArray = ValueNotifier([]);
-  int n = 3;
+  ValueNotifier<int> n = ValueNotifier<int>(3);
   ValueNotifier<bool> isHovering = ValueNotifier(false);
 
   void updateArray(int index, int value) {
@@ -13,6 +13,21 @@ class HomePageNotifier with ChangeNotifier {
   void updateHover() {
     isHovering.value = (!isHovering.value);
     isHovering.notifyListeners();
+  }
+
+  void setArray() {
+    myArray.value.clear();
+    for (var i = 1; i < (n.value * n.value); i++) {
+      myArray.value.add(i);
+    }
+    myArray.value.shuffle();
+    myArray.value.add(0);
+    myArray.notifyListeners();
+  }
+
+  void updateNVal(ValueNotifier<int> newVal) {
+    n = newVal  ;
+    n.notifyListeners();
   }
 }
 
