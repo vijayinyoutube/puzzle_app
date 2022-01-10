@@ -99,7 +99,7 @@ class LeftTextAreaClass extends StatelessWidget {
         elevation: 16,
         items: HomePageRepo().levels.entries.map((items) {
           return DropdownMenuItem<String>(
-            alignment: Alignment.center,
+           
             value: items.value,
             child: Text(
               items.value,

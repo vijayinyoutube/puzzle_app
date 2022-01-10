@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../Constants/constants.dart';
@@ -42,32 +43,11 @@ class BuildContainerClass extends StatelessWidget {
                     homePageNotifier.myArray.value.indexOf(index), 0);
                 homePageNotifier.updateArray(zeroIndex, index);
               }
-//               else if(((zeroIndex-homePageNotifier.myArray.value.indexOf(index)==6)|| (zeroIndex-homePageNotifier.myArray.value.indexOf(index)==-6)&&(zeroIndex<homePageNotifier.n))){
-//                 print("INSIDE");
-//                 int temp=homePageNotifier.myArray.value[zeroIndex];
-//                 print(temp);
-//                 var mid=0;
-//                 var i=0;
-
-//                 for( i=0;i<homePageNotifier.myArray.value.indexOf(index);i++)
-//                 {
-//                   if(homePageNotifier.myArray.value.indexOf(index)-homePageNotifier.myArray.value[i]==homePageNotifier.n){
-//                   print("Ci = ${((index))}");
-//                   print("a[i] =  ${([i])}");
-//                      mid=homePageNotifier.myArray.value[i];
-//                      print("mid $mid");
-
-//                   }
-//                 }
-//                  homePageNotifier.updateArray(homePageNotifier.myArray.value.indexOf(zeroIndex), mid);
-//                      homePageNotifier.updateArray(homePageNotifier.myArray.value.indexOf(i), homePageNotifier.myArray.value.indexOf(index));
-//  homePageNotifier.updateArray(homePageNotifier.myArray.value.indexOf(homePageNotifier.myArray.value.indexOf(index)), temp);
-
-// // homePageNotifier.myArray.value[zeroIndex]=mid;
-// // homePageNotifier.myArray.value[i]=homePageNotifier.myArray.value.indexOf(index);
-// // homePageNotifier.myArray.value[homePageNotifier.myArray.value.indexOf(index)]=temp;
-
-//               }
+            
+              if (listEquals(
+                  homePageNotifier.myArray.value, homePageNotifier.newArray)) {
+                print("SOLVED");
+              }
             },
             child: Container(
               width: 100,

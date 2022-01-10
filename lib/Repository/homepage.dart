@@ -3,7 +3,7 @@ class HomePageRepo {
   Map<int, String> levels = {
     3: 'Beginner',
     4: 'Intermediate',
-    5: 'Advanced'
+    5: '🔥 Advanced'
   };
 
 

@@ -6,6 +6,7 @@ class HomePageNotifier with ChangeNotifier {
   ValueNotifier<bool> isHovering = ValueNotifier(false);
   int lastClicked = 0;
   ValueNotifier<int> moves = ValueNotifier(0);
+  List<int> newArray = [];
 
   void updateArray(int index, int value) {
     myArray.value[index] = value;
@@ -18,14 +19,19 @@ class HomePageNotifier with ChangeNotifier {
   }
 
   void setArray() {
+    newArray.clear();
     myArray.value.clear();
     for (var i = 1; i < (n.value * n.value); i++) {
       myArray.value.add(i);
+      
+      newArray.add(i);
     }
     myArray.value.shuffle();
     myArray.value.add(0);
     lastClicked = myArray.value.length;
     moves.value = 0;
+    newArray.sort();
+    newArray.add(0);
     myArray.notifyListeners();
   }
 
