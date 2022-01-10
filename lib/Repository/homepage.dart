@@ -1,20 +1,15 @@
-import '../ValueNotifier/homepage_notifier.dart';
-
 class HomePageRepo {
-  void setArray(int count) {
-    for (var i = 1; i < count; i++) {
-      homePageNotifier.myArray.value.add(i);
-    }
-    homePageNotifier.myArray.value.add(0);
-  }
+  
+  Map<int, String> levels = {
+    2: 'Beginner',
+    3: 'Intermediate',
+    4: 'Advanced',
+    5: 'Pro'
+  };
+
+  String defaultLevel = "Intermediate";
 
   double getPaddingSPace(int n) {
     return ((25 * n) / 3);
-  }
-
-  isMultipleofN(int n) {
-    int temp = ((n +1) % homePageNotifier.n).floor();
-    print(temp);
-    return temp == 0 ? false : true;
   }
 }
