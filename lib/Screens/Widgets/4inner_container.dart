@@ -75,10 +75,11 @@ class BuildContainerClass extends StatelessWidget {
               height: 100,
               child: Center(
                   child: index != 0
-                      ? Text(index.toString(),style:const TextStyle(
-                              color: Colors.white, fontSize: 30), )
-                      
-                      
+                      ? Text(
+                          index.toString(),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 30),
+                        )
                       : const SizedBox()),
               decoration: BoxDecoration(
                   borderRadius: kBorder,
@@ -89,7 +90,7 @@ class BuildContainerClass extends StatelessWidget {
                           : homePageNotifier.isHovering.value &&
                                   hoverIndex == index
                               ? hoverColor
-                              : primaryColor ),
+                              : primaryColor),
             ),
           ),
         ),
@@ -105,7 +106,7 @@ class BuildContainerClass extends StatelessWidget {
   }
 
   isNotDiagonallyOpposite(int index) {
-    return homePageNotifier.n != 2
+    return homePageNotifier.n.value != 2
         ? ((zeroIndex % (homePageNotifier.n.value) != 0 ||
                 (homePageNotifier.myArray.value.indexOf(index) + 1) %
                         (homePageNotifier.n.value) !=

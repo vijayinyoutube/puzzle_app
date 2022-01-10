@@ -9,10 +9,14 @@ class BuildPuzzleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<List<int>>(
-        valueListenable: homePageNotifier.myArray,
+    return  ValueListenableBuilder<int>(
+        valueListenable: homePageNotifier.n,
         builder: (context, value, _) {
-          return puzzleContainer();
+          return ValueListenableBuilder<List<int>>(
+              valueListenable: homePageNotifier.myArray,
+              builder: (context, value, _) {
+                return puzzleContainer();
+              });
         });
   }
 
@@ -23,9 +27,8 @@ class BuildPuzzleContainer extends StatelessWidget {
         height: (100 * homePageNotifier.n.value.toDouble() +
             HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent),
-          borderRadius: kBorder
-        ),
+            border: Border.all(color: Colors.blueAccent),
+            borderRadius: kBorder),
         child: Wrap(
           children: [
             for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
