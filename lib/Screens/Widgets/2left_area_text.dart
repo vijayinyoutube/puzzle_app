@@ -46,72 +46,78 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         });
   }
 
-  Widget buildlefttext() => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+  Widget buildlefttext() => Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 55,
-            //  color: Colors.red,
-            child: Row(
-              children: [
-                const FlutterLogo(
-                  size: 40,
-                ),
-                Text(
-                  "Flutter",
-                  style: TextStyle(color: secondaryColor, fontSize: 30),
-                ),
-                const WidthSpacer(myWidth: 10.00),
-                Container(width: 2.5, height: 35, color: secondaryColor),
-                const WidthSpacer(myWidth: 10.00),
-                buildAnimatedText(),
-              ],
-            ),
-          ),
-          const HeightSpacer(myHeight: 10.00),
-          Text(
-            "#PuzzleChallenge",
-            style: TextStyle(
-              color: colorAnimation.value,
-              fontSize: 50,
-            ),
-          ),
-          const HeightSpacer(myHeight: 15.00),
-          Row(
+          Container(width: 3.5, height: 225, color: hoverColor),
+          const WidthSpacer(myWidth: 25.00),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              buildButtom(
-                  175,
-                  const Icon(
-                    Icons.refresh,
-                    color: Colors.white,
-                  ),
-                  Padding(
-                    padding: kPadding * 1.5,
-                    child: const Text(
-                      "Shuffle",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+              SizedBox(
+                height: 55,
+                child: Row(
+                  children: [
+                    const FlutterLogo(
+                      size: 40,
                     ),
-                  ),
-                  secondaryColor,
-                  () => homePageNotifier.setArray()),
-              const WidthSpacer(myWidth: 15.00),
-              buildButtom(
-                  250,
-                  const Padding(
-                    padding: EdgeInsets.only(right: 9.0),
-                    child: Text(
-                      "Level",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    Text(
+                      "Flutter",
+                      style: TextStyle(color: secondaryColor, fontSize: 30),
                     ),
-                  ),
-                  Padding(
-                      padding: kPadding * 0.32,
-                      child: buildFontStyleDropDownMenu()),
-                  primaryColor,
-                  () => {}),
+                    const WidthSpacer(myWidth: 10.00),
+                    Container(width: 2.5, height: 35, color: secondaryColor),
+                    const WidthSpacer(myWidth: 10.00),
+                    buildAnimatedText(),
+                  ],
+                ),
+              ),
+              const HeightSpacer(myHeight: 10.00),
+              Text(
+                "#PuzzleChallenge",
+                style: TextStyle(
+                  color: colorAnimation.value,
+                  fontSize: 50,
+                ),
+              ),
+              const HeightSpacer(myHeight: 15.00),
+              Row(
+                children: [
+                  buildButtom(
+                      175,
+                      const Icon(
+                        Icons.refresh,
+                        color: Colors.white,
+                      ),
+                      Padding(
+                        padding: kPadding * 1.5,
+                        child: const Text(
+                          "Shuffle",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ),
+                      secondaryColor,
+                      () => homePageNotifier.setArray()),
+                  const WidthSpacer(myWidth: 15.00),
+                  buildButtom(
+                      250,
+                      const Padding(
+                        padding: EdgeInsets.only(right: 9.0),
+                        child: Text(
+                          "Level",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ),
+                      Padding(
+                          padding: kPadding * 0.32,
+                          child: buildFontStyleDropDownMenu()),
+                      primaryColor,
+                      () => {}),
+                ],
+              )
             ],
-          )
+          ),
         ],
       );
 
