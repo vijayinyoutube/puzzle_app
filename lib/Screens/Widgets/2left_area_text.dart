@@ -1,35 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:puzzle_app/Constants/constants.dart';
-
+import 'package:animated_text_kit/animated_text_kit.dart';
+import '../../Declarations/Constants/constants.dart';
 import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 import '../../Widgets/g_widgets.dart';
 
-class LeftTextAreaClass extends StatelessWidget {
+class LeftTextAreaClass extends StatefulWidget {
   const LeftTextAreaClass({Key? key}) : super(key: key);
+
+  @override
+  State<LeftTextAreaClass> createState() => _LeftTextAreaClassState();
+}
+
+class _LeftTextAreaClassState extends State<LeftTextAreaClass>
+    with TickerProviderStateMixin {
+  late Animation colorAnimation;
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    colorAnimation = ColorTween(begin: primaryColor, end: secondaryColor)
+        .animate(controller);
+    controller.addListener(() {
+      setState(() {});
+    });
+
+    controller.repeat(reverse: true);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int>(
         valueListenable: homePageNotifier.n,
         builder: (context, value, _) {
-          return buildleft_text();
+          return buildlefttext();
         });
   }
 
-  Widget buildleft_text() => Column(
+  Widget buildlefttext() => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "FlutterWeb",
-            style: TextStyle(color: secondaryColor, fontSize: 30),
+          SizedBox(
+            height: 55,
+            //  color: Colors.red,
+            child: Row(
+              children: [
+                const FlutterLogo(
+                  size: 40,
+                ),
+                Text(
+                  "Flutter",
+                  style: TextStyle(color: secondaryColor, fontSize: 30),
+                ),
+                const WidthSpacer(myWidth: 10.00),
+                Container(width: 2.5, height: 35, color: secondaryColor),
+                const WidthSpacer(myWidth: 10.00),
+                buildAnimatedText(),
+              ],
+            ),
           ),
-          const HeightSpacer(myHeight: 15.00),
+          const HeightSpacer(myHeight: 10.00),
           Text(
             "#PuzzleChallenge",
             style: TextStyle(
-                color: primaryColor, fontSize: 50, fontWeight: FontWeight.bold),
+              color: colorAnimation.value,
+              fontSize: 50,
+            ),
           ),
           const HeightSpacer(myHeight: 15.00),
           Row(
@@ -69,6 +115,28 @@ class LeftTextAreaClass extends StatelessWidget {
         ],
       );
 
+  Widget buildAnimatedText() => Padding(
+        padding: const EdgeInsets.only(top: 2.0),
+        child: AnimatedTextKit(
+          animatedTexts: [
+            for (var i = 0; i < HomePageRepo().pltforms.length; i++)
+              buildText(i),
+          ],
+          repeatForever: true,
+          pause: const Duration(milliseconds: 50),
+        ),
+      );
+
+  buildText(int index) {
+    return RotateAnimatedText(
+      HomePageRepo().pltforms[index],
+      textStyle: TextStyle(
+        fontSize: 30.0,
+        color: secondaryColor,
+      ),
+    );
+  }
+
   Widget buildButtom(double width, Widget child1, Widget child2,
           Color containerColor, Function myFunction) =>
       GestureDetector(
@@ -99,7 +167,6 @@ class LeftTextAreaClass extends StatelessWidget {
         elevation: 16,
         items: HomePageRepo().levels.entries.map((items) {
           return DropdownMenuItem<String>(
-           
             value: items.value,
             child: Text(
               items.value,

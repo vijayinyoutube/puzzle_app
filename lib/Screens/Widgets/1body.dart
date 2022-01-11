@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:puzzle_app/Constants/constants.dart';
 import 'package:puzzle_app/Screens/Widgets/2left_area_text.dart';
 import 'package:puzzle_app/Screens/Widgets/3puzzle_container.dart';
 import 'package:puzzle_app/Widgets/g_widgets.dart';
-
-import '../../Repository/homepage.dart';
+import '../../Declarations/Constants/constants.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 
 
