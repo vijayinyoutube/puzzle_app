@@ -99,7 +99,7 @@ class LeftTextAreaClass extends StatelessWidget {
         elevation: 16,
         items: HomePageRepo().levels.entries.map((items) {
           return DropdownMenuItem<String>(
-            alignment: Alignment.center,
+           
             value: items.value,
             child: Text(
               items.value,
@@ -111,7 +111,6 @@ class LeftTextAreaClass extends StatelessWidget {
           );
         }).toList(),
         onChanged: (newValue) {
-          print("Clicked");
           var keys = HomePageRepo().levels.entries.firstWhere((element) {
             return element.value == newValue;
           });
