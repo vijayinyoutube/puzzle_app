@@ -49,7 +49,7 @@ class MovesTextClass extends StatelessWidget {
               color: secondaryColor,
             ),
             odometerNumber: OdometerNumber(homePageNotifier.moves.value),
-            duration: const Duration(seconds: 1),
+            duration: const Duration(milliseconds: 500),
             letterWidth: 12,
           ),
           const WidthSpacer(myWidth: 5.5),
