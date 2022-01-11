@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:odometer/odometer.dart';
 import 'package:puzzle_app/Screens/Widgets/2left_area_text.dart';
 import 'package:puzzle_app/Screens/Widgets/3puzzle_container.dart';
 import 'package:puzzle_app/Widgets/g_widgets.dart';
 import '../../Declarations/Constants/constants.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
-
 
 class BuildBodyClass extends StatelessWidget {
   const BuildBodyClass({Key? key}) : super(key: key);
@@ -19,8 +19,8 @@ class BuildBodyClass extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: const [
-             BuildPuzzleContainer(),
-             HeightSpacer(myHeight: 10),
+            BuildPuzzleContainer(),
+            HeightSpacer(myHeight: 10),
             MovesTextClass(),
           ],
         )
@@ -28,7 +28,6 @@ class BuildBodyClass extends StatelessWidget {
     ));
   }
 }
-
 
 class MovesTextClass extends StatelessWidget {
   const MovesTextClass({Key? key}) : super(key: key);
@@ -38,13 +37,29 @@ class MovesTextClass extends StatelessWidget {
     return ValueListenableBuilder<int>(
         valueListenable: homePageNotifier.moves,
         builder: (context, value, _) {
-          return Text(
-             "${homePageNotifier.moves.value} moves",
-              style: TextStyle(
-                color: secondaryColor,
-                fontSize: 20,
-              ),
-            );
+          return buildMoveAnimationText();
         });
   }
+
+  Widget buildMoveAnimationText() => Row(
+        children: [
+          AnimatedSlideOdometerNumber(
+            numberTextStyle: TextStyle(
+              fontSize: 20,
+              color: secondaryColor,
+            ),
+            odometerNumber: OdometerNumber(homePageNotifier.moves.value),
+            duration: const Duration(seconds: 1),
+            letterWidth: 12,
+          ),
+          const WidthSpacer(myWidth: 5.5),
+          Text(
+            "moves",
+            style: TextStyle(
+              color: secondaryColor,
+              fontSize: 20,
+            ),
+          ),
+        ],
+      );
 }
