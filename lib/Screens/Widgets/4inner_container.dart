@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import '../../Constants/constants.dart';
-import '../../Repository/homepage.dart';
+import '../../Declarations/Constants/constants.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 
 class BuildContainerClass extends StatelessWidget {
@@ -43,7 +41,7 @@ class BuildContainerClass extends StatelessWidget {
                     homePageNotifier.myArray.value.indexOf(index), 0);
                 homePageNotifier.updateArray(zeroIndex, index);
               }
-            
+
               if (listEquals(
                   homePageNotifier.myArray.value, homePageNotifier.newArray)) {
                 print("SOLVED");
