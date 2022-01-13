@@ -1,3 +1,4 @@
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,7 +32,7 @@ class HomePageRepo {
     final prefs = await SharedPreferences.getInstance();
 
     isDarkMode = prefs.getBool('isDarkMode') ?? false;
-    runApp( MyApp(themeData: isDarkMode,));
+    runApp(MyApp(themeData: isDarkMode));
     return isDarkMode;
   }
 }
