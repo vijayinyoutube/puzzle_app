@@ -68,19 +68,27 @@ class _BottomInfoState extends State<BottomInfo> {
     );
   }
 
-  Widget buildDarkThemeToggleBtn() => SizedBox(
-        width: 65,
-        child: DayNightSwitcher(
-          isDarkModeEnabled: isDarkMode,
-          onStateChanged: (bool value) {
-            setState(() {
-              isDarkMode = value;
-              HomePageRepo().saveTheme(isDarkMode);
-              runApp(MyApp(themedata: isDarkMode));
-            });
-          },
-        ),
-      );
+  Widget buildDarkThemeToggleBtn() => FutureBuilder(
+      future: HomePageRepo().getTheme(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return SizedBox(
+            width: 65,
+            child: DayNightSwitcher(
+              isDarkModeEnabled: isDarkMode,
+              onStateChanged: (bool value) {
+                setState(() {
+                  isDarkMode = value;
+                  HomePageRepo().saveTheme(isDarkMode);
+                  HomePageRepo().getTheme();
+                });
+              },
+            ),
+          );
+        } else {
+          return const CircularProgressIndicator();
+        }
+      });
 
   Widget buildMoveAnimationText() => Row(
         children: [

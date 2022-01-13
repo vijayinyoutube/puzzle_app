@@ -10,14 +10,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, bool? themedata}) : super(key: key);
+  const MyApp({Key? key, this.themeData = false}) : super(key: key);
+
+  final bool themeData;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      theme: themeData ? ThemeData.dark() : ThemeData.light(),
       home: const MyHomePage(title: '#FlutterPuzzleChallenge'),
     );
   }

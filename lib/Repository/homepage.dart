@@ -27,9 +27,11 @@ class HomePageRepo {
     prefs.setBool('isDarkMode', isDarkMode);
   }
 
-  Future<void> getTheme() async {
+  Future<bool> getTheme() async {
     final prefs = await SharedPreferences.getInstance();
 
     isDarkMode = prefs.getBool('isDarkMode') ?? false;
+    runApp( MyApp(themeData: isDarkMode,));
+    return isDarkMode;
   }
 }
