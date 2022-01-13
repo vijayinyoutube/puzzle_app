@@ -9,7 +9,7 @@ class BuildPuzzleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ValueListenableBuilder<int>(
+    return ValueListenableBuilder<int>(
         valueListenable: homePageNotifier.n,
         builder: (context, value, _) {
           return ValueListenableBuilder<List<int>>(
@@ -28,7 +28,8 @@ class BuildPuzzleContainer extends StatelessWidget {
             HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
         decoration: BoxDecoration(
             border: Border.all(color: Colors.blueAccent),
-            borderRadius: kBorder),
+            borderRadius: kBorder,
+            ),
         child: Wrap(
           children: [
             for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
