@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Declarations/Constants/constants.dart';
+import '../main.dart';
+
 class HomePageRepo {
   Map<int, String> levels = {
     3: 'Beginner',
@@ -13,5 +19,17 @@ class HomePageRepo {
 
   double getPaddingSPace(int n) {
     return ((25 * n) / 3);
+  }
+
+  Future<void> saveTheme(bool isDarkMode) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('isDarkMode', isDarkMode);
+  }
+
+  Future<void> getTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    isDarkMode = prefs.getBool('isDarkMode') ?? false;
   }
 }

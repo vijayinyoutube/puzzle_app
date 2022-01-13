@@ -11,4 +11,5 @@ Color primaryColor  = HexColor("#0e459c");
 Color secondaryColor = HexColor("#66b1f1");
 Color hoverColor = HexColor("#0468d7");
 
+bool isDarkMode= false;
 
