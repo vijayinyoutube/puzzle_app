@@ -3,9 +3,8 @@ import '../../ValueNotifier/homepage_notifier.dart';
 import '../Widgets/1body.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
+ 
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

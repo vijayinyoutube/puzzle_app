@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: themeData ? ThemeData.dark() : ThemeData.light(),
-      home: const MyHomePage(title: '#FlutterPuzzleChallenge'),
+      home: const MyHomePage(),
     );
   }
 }
