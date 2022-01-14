@@ -47,7 +47,7 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
   }
 
   Widget buildlefttext() => Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(width: 3.5, height: 225, color: hoverColor),
           const WidthSpacer(myWidth: 25.00),

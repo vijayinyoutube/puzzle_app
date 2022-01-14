@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../Declarations/Constants/constants.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
+import 'package:delayed_display/delayed_display.dart';
 
 class BuildContainerClass extends StatefulWidget {
   const BuildContainerClass({Key? key, required this.value}) : super(key: key);
@@ -72,27 +73,32 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
                 canAnimate = false;
               }
             },
-            child: Container(
-              width: 100,
-              height: 100,
-              child: Center(
-                  child: index != 0
-                      ? Text(
-                          index.toString(),
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 30),
-                        )
-                      : const SizedBox()),
-              decoration: BoxDecoration(
-                  borderRadius: kBorder,
-                  color: index == 0
-                      ? Colors.transparent
-                      : homePageNotifier.lastClicked == index
-                          ? secondaryColor
-                          : homePageNotifier.isHovering.value &&
-                                  BuildContainerClass.hoverIndex == index
-                              ? hoverColor
-                              : primaryColor),
+            child: DelayedDisplay(
+              delay: Duration(
+                  milliseconds:
+                      homePageNotifier.myArray.value.indexOf(index) * 50),
+              child: Container(
+                width: 100,
+                height: 100,
+                child: Center(
+                    child: index != 0
+                        ? Text(
+                            index.toString(),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 30),
+                          )
+                        : const SizedBox()),
+                decoration: BoxDecoration(
+                    borderRadius: kBorder,
+                    color: index == 0
+                        ? Colors.transparent
+                        : homePageNotifier.lastClicked == index
+                            ? secondaryColor
+                            : homePageNotifier.isHovering.value &&
+                                    BuildContainerClass.hoverIndex == index
+                                ? hoverColor
+                                : primaryColor),
+              ),
             ),
           ),
         ),
