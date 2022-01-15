@@ -22,7 +22,7 @@
 
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/58719230/149398992-fb78041d-e1c8-4134-ae8b-88fb182a1d20.png" width="100%">
+<img src="https://user-images.githubusercontent.com/58719230/149609241-fad24df9-61f3-4d92-938b-cadc256119db.png" width="100%">
 </p>
 
 
