@@ -34,6 +34,7 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
         valueListenable: homePageNotifier.isHovering,
         builder: (context, values, _) {
           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               buildConfetti(),
               buildColorContainer(widget.value, context),

@@ -15,21 +15,29 @@ class BuildBodyClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      // color: Colors.green,
+      height: double.infinity,
+      child: SingleChildScrollView(
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        const LeftTextAreaClass(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: const [
-            BuildPuzzleContainer(),
-            HeightSpacer(myHeight: 10),
-            BottomInfo(),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const LeftTextAreaClass(),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 25, right: 100, top: 10, bottom: 10),
+              child: Column(
+                children: const [
+                  BuildPuzzleContainer(),
+                  HeightSpacer(myHeight: 10),
+                  BottomInfo(),
+                ],
+              ),
+            )
           ],
-        )
-      ],
-    ));
+        ),
+      ),
+    );
   }
 }
 
