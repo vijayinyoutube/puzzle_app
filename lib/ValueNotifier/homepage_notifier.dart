@@ -41,7 +41,6 @@ class HomePageNotifier with ChangeNotifier {
     setArray();
     lastClicked = myArray.value.length;
     moves.value = 0;
-    myArray.notifyListeners();
   }
 
   void updateMoves() {

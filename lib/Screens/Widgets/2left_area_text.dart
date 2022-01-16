@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../../Declarations/Constants/constants.dart';
+import '../../Declarations/Images/image_files.dart';
 import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 import '../../Widgets/g_widgets.dart';
@@ -46,83 +47,109 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         });
   }
 
-  Widget buildlefttext() => Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(width: 3.5, height: 225, color: hoverColor),
-          const WidthSpacer(myWidth: 25.00),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 55,
+  Widget buildlefttext() => Container(
+        // color: Colors.pink,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 2, child: buildImage(images[0])),
+            Expanded(
+              flex: 6,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 100, vertical: 50),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const FlutterLogo(
-                      size: 40,
+                    Container(width: 3.5, height: 225, color: hoverColor),
+                    const WidthSpacer(myWidth: 25.00),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 55,
+                          child: Row(
+                            children: [
+                              const FlutterLogo(
+                                size: 40,
+                              ),
+                              Text(
+                                "Flutter",
+                                style: TextStyle(
+                                    color: secondaryColor, fontSize: 30),
+                              ),
+                              const WidthSpacer(myWidth: 10.00),
+                              Container(
+                                  width: 2.5,
+                                  height: 35,
+                                  color: secondaryColor),
+                              const WidthSpacer(myWidth: 10.00),
+                              buildAnimatedText(),
+                            ],
+                          ),
+                        ),
+                        const HeightSpacer(myHeight: 10.00),
+                        Text(
+                          "#PuzzleChallenge",
+                          style: TextStyle(
+                            color: colorAnimation.value,
+                            fontSize: 50,
+                          ),
+                        ),
+                        const HeightSpacer(myHeight: 15.00),
+                        Row(
+                          children: [
+                            buildButtom(
+                                175,
+                                const Icon(
+                                  Icons.refresh,
+                                  color: Colors.white,
+                                ),
+                                Padding(
+                                  padding: kPadding * 1.5,
+                                  child: const Text(
+                                    "Shuffle",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 20),
+                                  ),
+                                ),
+                                secondaryColor,
+                                () => homePageNotifier.setArray()),
+                            const WidthSpacer(myWidth: 15.00),
+                            buildButtom(
+                                250,
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 9.0),
+                                  child: Text(
+                                    "Level",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18),
+                                  ),
+                                ),
+                                Padding(
+                                    padding: kPadding * 0.32,
+                                    child: buildFontStyleDropDownMenu()),
+                                primaryColor,
+                                () => {}),
+                          ],
+                        )
+                      ],
                     ),
-                    Text(
-                      "Flutter",
-                      style: TextStyle(color: secondaryColor, fontSize: 30),
-                    ),
-                    const WidthSpacer(myWidth: 10.00),
-                    Container(width: 2.5, height: 35, color: secondaryColor),
-                    const WidthSpacer(myWidth: 10.00),
-                    buildAnimatedText(),
                   ],
                 ),
               ),
-              const HeightSpacer(myHeight: 10.00),
-              Text(
-                "#PuzzleChallenge",
-                style: TextStyle(
-                  color: colorAnimation.value,
-                  fontSize: 50,
-                ),
-              ),
-              const HeightSpacer(myHeight: 15.00),
-              Row(
-                children: [
-                  buildButtom(
-                      175,
-                      const Icon(
-                        Icons.refresh,
-                        color: Colors.white,
-                      ),
-                      Padding(
-                        padding: kPadding * 1.5,
-                        child: const Text(
-                          "Shuffle",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                      ),
-                      secondaryColor,
-                      () => homePageNotifier.setArray()),
-                  const WidthSpacer(myWidth: 15.00),
-                  buildButtom(
-                      250,
-                      const Padding(
-                        padding: EdgeInsets.only(right: 9.0),
-                        child: Text(
-                          "Level",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                      Padding(
-                          padding: kPadding * 0.32,
-                          child: buildFontStyleDropDownMenu()),
-                      primaryColor,
-                      () => {}),
-                ],
-              )
-            ],
-          ),
-        ],
+            ),
+            Expanded(flex: 2, child: buildImage(images[1])),
+          ],
+        ),
       );
 
   Widget buildAnimatedText() => Padding(
-        padding: const EdgeInsets.only(top: 2.0),
+        padding: const EdgeInsets.only(top: 1.5),
         child: AnimatedTextKit(
           animatedTexts: [
             for (var i = 0; i < HomePageRepo().pltforms.length; i++)
@@ -189,5 +216,9 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
           });
           homePageNotifier.updateNVal(ValueNotifier(keys.key));
         },
+      );
+
+  Widget buildImage(String path) => Image.asset(
+        path,
       );
 }
