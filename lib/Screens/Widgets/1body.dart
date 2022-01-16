@@ -21,12 +21,15 @@ class BuildBodyClass extends StatelessWidget {
       child: SingleChildScrollView(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const LeftTextAreaClass(),
             Padding(
               padding: const EdgeInsets.only(
-                  left: 25, right: 100, top: 10, bottom: 10),
+                  left: 25, right: 120, top: 10, bottom: 10),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
                   BuildPuzzleContainer(),
                   HeightSpacer(myHeight: 10),
