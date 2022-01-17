@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:odometer/odometer.dart';
+import 'package:puzzle_app/Declarations/Images/image_files.dart';
 import 'package:puzzle_app/Screens/Widgets/2left_area_text.dart';
 import 'package:puzzle_app/Screens/Widgets/3puzzle_container.dart';
 import 'package:puzzle_app/Widgets/g_widgets.dart';
@@ -15,31 +16,42 @@ class BuildBodyClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.green,
+    return SizedBox(
       height: double.infinity,
       child: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const LeftTextAreaClass(),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 25, right: 120, top: 10, bottom: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  BuildPuzzleContainer(),
-                  HeightSpacer(myHeight: 10),
-                  BottomInfo(),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+          child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            top: -100,
+            left: 470,
+            child: Image.asset(
+              images[3],
+              height: 600,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const LeftTextAreaClass(),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 25, right: 120, top: 30, bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    BuildPuzzleContainer(),
+                    HeightSpacer(myHeight: 10),
+                    BottomInfo(),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      )),
     );
   }
 }

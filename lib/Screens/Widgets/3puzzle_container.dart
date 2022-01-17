@@ -27,9 +27,10 @@ class BuildPuzzleContainer extends StatelessWidget {
         height: (100 * homePageNotifier.n.value.toDouble() +
             HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
         decoration: BoxDecoration(
-            border: Border.all(color: Colors.blueAccent),
-            borderRadius: kBorder,
-            ),
+          border: Border.all(color: Colors.blueAccent),
+          borderRadius: kBorder,
+          color: isDarkMode ? Colors.black : Colors.white,
+        ),
         child: Wrap(
           children: [
             for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
