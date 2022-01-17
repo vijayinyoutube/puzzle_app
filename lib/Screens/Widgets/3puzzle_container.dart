@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import '../../Declarations/Constants/constants.dart';
 import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
@@ -15,12 +16,12 @@ class BuildPuzzleContainer extends StatelessWidget {
           return ValueListenableBuilder<List<int>>(
               valueListenable: homePageNotifier.myArray,
               builder: (context, value, _) {
-                return puzzleContainer();
+                return puzzleContainer(context);
               });
         });
   }
 
-  Widget puzzleContainer() => Container(
+  Widget puzzleContainer(BuildContext context) => Container(
         alignment: Alignment.center,
         width: (100 * homePageNotifier.n.value.toDouble() +
             HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
@@ -29,7 +30,9 @@ class BuildPuzzleContainer extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent),
           borderRadius: kBorder,
-          color: isDarkMode ? Colors.black : Colors.white,
+          color: Theme.of(context).brightness.name == "light"
+              ? HexColor("#fafafa")
+              : HexColor("#303030"),
         ),
         child: Wrap(
           children: [

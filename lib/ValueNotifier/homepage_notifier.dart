@@ -36,8 +36,6 @@ class HomePageNotifier with ChangeNotifier {
     newArray.sort();
     newArray.add(0);
     myArray.notifyListeners();
-    print(myArray.value);
-    print(newArray);
   }
 
   void updateNVal(ValueNotifier<int> newVal) {
