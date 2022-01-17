@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HomePageNotifier with ChangeNotifier {
-  ValueNotifier<List<int>> myArray = ValueNotifier([]);
-  ValueNotifier<int> n = ValueNotifier(4);
   ValueNotifier<bool> isHovering = ValueNotifier(false);
-  int lastClicked = 0;
+  ValueNotifier<List<int>> myArray = ValueNotifier([]);
   ValueNotifier<int> moves = ValueNotifier(0);
+  ValueNotifier<int> n = ValueNotifier(4);
   List<int> newArray = [];
+  int lastClicked = 0;
+  bool canAnimate = true;
 
   void updateArray(int index, int value) {
     myArray.value[index] = value;
@@ -19,11 +20,13 @@ class HomePageNotifier with ChangeNotifier {
   }
 
   void setArray() {
+    canAnimate = true;
     newArray.clear();
     myArray.value.clear();
+
     for (var i = 1; i < (n.value * n.value); i++) {
       myArray.value.add(i);
-      
+
       newArray.add(i);
     }
     myArray.value.shuffle();
@@ -33,6 +36,8 @@ class HomePageNotifier with ChangeNotifier {
     newArray.sort();
     newArray.add(0);
     myArray.notifyListeners();
+    print(myArray.value);
+    print(newArray);
   }
 
   void updateNVal(ValueNotifier<int> newVal) {

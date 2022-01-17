@@ -19,7 +19,7 @@ class BuildContainerClass extends StatefulWidget {
 
 class _BuildContainerClassState extends State<BuildContainerClass> {
   late ConfettiController _controller;
-  bool canAnimate = true;
+ 
   @override
   void initState() {
     super.initState();
@@ -66,12 +66,14 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
                 homePageNotifier.updateArray(
                     BuildContainerClass.zeroIndex, index);
               }
-
+              // print(homePageNotifier.myArray.value);
+              // print(homePageNotifier.newArray);
               if (listEquals(homePageNotifier.myArray.value,
                       homePageNotifier.newArray) &&
-                  canAnimate == true) {
+                 homePageNotifier. canAnimate == true) {
+                print("SOLVED");
                 _controller.play();
-                canAnimate = false;
+               homePageNotifier. canAnimate = false;
               }
             },
             child: DelayedDisplay(
