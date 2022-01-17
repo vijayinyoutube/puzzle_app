@@ -46,7 +46,13 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
 
 ## Dependencies
 ```pubspec.yaml
-  hexcolor: ^2.0.5  
+  hexcolor: ^2.0.5
+  animated_text_kit: ^4.2.1
+  odometer: ^2.1.3
+  day_night_switcher: ^0.2.0+1
+  shared_preferences: ^2.0.12
+  confetti: ^0.6.0
+  delayed_display: ^2.0.0
 ```
 
 
