@@ -132,7 +132,7 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
                                 ),
                                 Padding(
                                     padding: kPadding * 0.32,
-                                    child: buildFontStyleDropDownMenu()),
+                                    child: buildDropDownMenu()),
                                 primaryColor,
                                 () => {}),
                           ],
@@ -188,7 +188,8 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         ),
       );
 
-  Widget buildFontStyleDropDownMenu() => DropdownButton<String>(
+  Widget buildDropDownMenu() => DropdownButton<String>(
+    focusColor: Colors.transparent,
         alignment: Alignment.center,
         value: HomePageRepo().levels[homePageNotifier.n.value],
         underline: Container(height: 2, color: Colors.white),
