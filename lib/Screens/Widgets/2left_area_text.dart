@@ -47,14 +47,14 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         });
   }
 
-  Widget buildlefttext() => Container(
+  Widget buildlefttext() => SizedBox(
         // color: Colors.pink,
         height: MediaQuery.of(context).size.height,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 2, child: buildImage(images[0])),
+            Expanded(flex: 2, child: BuildImage(path:images[0])),
             Expanded(
               flex: 6,
               child: Padding(
@@ -132,7 +132,7 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
                                 ),
                                 Padding(
                                     padding: kPadding * 0.32,
-                                    child: buildFontStyleDropDownMenu()),
+                                    child: buildDropDownMenu()),
                                 primaryColor,
                                 () => {}),
                           ],
@@ -143,7 +143,7 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
                 ),
               ),
             ),
-            Expanded(flex: 2, child: buildImage(images[1])),
+            Expanded(flex: 2, child: BuildImage(path:images[1])),
           ],
         ),
       );
@@ -188,7 +188,8 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         ),
       );
 
-  Widget buildFontStyleDropDownMenu() => DropdownButton<String>(
+  Widget buildDropDownMenu() => DropdownButton<String>(
+    focusColor: Colors.transparent,
         alignment: Alignment.center,
         value: HomePageRepo().levels[homePageNotifier.n.value],
         underline: Container(height: 2, color: Colors.white),
@@ -218,7 +219,5 @@ class _LeftTextAreaClassState extends State<LeftTextAreaClass>
         },
       );
 
-  Widget buildImage(String path) => Image.asset(
-        path,
-      );
+
 }

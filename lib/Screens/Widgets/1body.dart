@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:odometer/odometer.dart';
+import 'package:puzzle_app/Declarations/Images/image_files.dart';
 import 'package:puzzle_app/Screens/Widgets/2left_area_text.dart';
 import 'package:puzzle_app/Screens/Widgets/3puzzle_container.dart';
 import 'package:puzzle_app/Widgets/g_widgets.dart';
 import '../../Declarations/Constants/constants.dart';
 import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
-import '../../main.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 
 class BuildBodyClass extends StatelessWidget {
@@ -16,30 +17,56 @@ class BuildBodyClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.green,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: Theme.of(context).brightness.name == "light"
+                  ? [HexColor("9ED1FF"), HexColor("FFFFFF")]
+                  : [HexColor("#01407a"), HexColor("000000")])),
       height: double.infinity,
       child: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const LeftTextAreaClass(),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 25, right: 120, top: 10, bottom: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  BuildPuzzleContainer(),
-                  HeightSpacer(myHeight: 10),
-                  BottomInfo(),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+          child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Positioned(
+            top: -100,
+            left: 470,
+            child: Image.asset(
+              images[3],
+              height: 600,
+            ),
+          ),
+          Positioned(
+            bottom: -0,
+            right: -0,
+            child: Image.asset(
+              images[4],
+              height: 295,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const LeftTextAreaClass(),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 25, right: 120, top: 30, bottom: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    BuildPuzzleContainer(),
+                    HeightSpacer(myHeight: 10),
+                    BottomInfo(),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      )),
     );
   }
 }

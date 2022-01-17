@@ -20,4 +20,14 @@ class HeightSpacer extends StatelessWidget {
   }
 }
 
+class BuildImage extends StatelessWidget {
+  const BuildImage({Key? key, required this.path}) : super(key: key);
 
+  final String path;
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      path,
+    );
+  }
+}
