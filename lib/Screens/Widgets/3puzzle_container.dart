@@ -21,24 +21,29 @@ class BuildPuzzleContainer extends StatelessWidget {
         });
   }
 
-  Widget puzzleContainer(BuildContext context) => Container(
-        alignment: Alignment.center,
-        width: (100 * homePageNotifier.n.value.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
-        height: (100 * homePageNotifier.n.value.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent),
-          borderRadius: kBorder,
-          color: Theme.of(context).brightness.name == "light"
-              ? HexColor("#fafafa")
-              : HexColor("#303030"),
-        ),
-        child: Wrap(
-          children: [
-            for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
-              BuildContainerClass(value: homePageNotifier.myArray.value[i]),
-          ],
+  Widget puzzleContainer(BuildContext context) => Card(
+        elevation: 30.0,
+        shape: RoundedRectangleBorder(borderRadius: kBorder),
+        child: Container(
+          alignment: Alignment.center,
+          width: (100 * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+          height: (100 * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+          decoration: BoxDecoration(
+            
+            border: Border.all(color: Colors.blueAccent),
+            borderRadius: kBorder,
+            color: Theme.of(context).brightness.name == "light"
+                ? HexColor("#fafafa")
+                : HexColor("#303030"),
+          ),
+          child: Wrap(
+            children: [
+              for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
+                BuildContainerClass(value: homePageNotifier.myArray.value[i]),
+            ],
+          ),
         ),
       );
 }

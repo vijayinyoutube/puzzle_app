@@ -44,6 +44,7 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
   }
 
   Widget buildColorContainer(int index, BuildContext context) => Padding(
+    
         padding: kPadding / 5,
         child: MouseRegion(
           onEnter: (PointerEvent event) {
