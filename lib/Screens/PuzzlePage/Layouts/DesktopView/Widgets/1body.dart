@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:odometer/odometer.dart';
 import 'package:puzzle_app/Declarations/Images/image_files.dart';
-import 'package:puzzle_app/Screens/Widgets/2left_area_text.dart';
-import 'package:puzzle_app/Screens/Widgets/3puzzle_container.dart';
 import 'package:puzzle_app/Widgets/g_widgets.dart';
-import '../../Declarations/Constants/constants.dart';
-import '../../Repository/homepage.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
+
+import '../../../../../Declarations/Constants/constants.dart';
+import '../../../../../Repository/homepage.dart';
+import '../../../../../ValueNotifier/homepage_notifier.dart';
+import '2left_area_text.dart';
+import '3puzzle_container.dart';
 
 class BuildBodyClass extends StatelessWidget {
   const BuildBodyClass({Key? key}) : super(key: key);

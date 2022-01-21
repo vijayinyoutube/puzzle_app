@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import '../../Declarations/Constants/constants.dart';
-import '../../Repository/homepage.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
+import '../../../../../Declarations/Constants/constants.dart';
+import '../../../../../Repository/homepage.dart';
+import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '4inner_container.dart';
 
 class BuildPuzzleContainer extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import '../../Declarations/Constants/constants.dart';
-import '../../Declarations/Images/image_files.dart';
-import '../../Repository/homepage.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
-import '../../Widgets/g_widgets.dart';
+import '../../../../../Declarations/Constants/constants.dart';
+import '../../../../../Declarations/Images/image_files.dart';
+import '../../../../../Repository/homepage.dart';
+import '../../../../../ValueNotifier/homepage_notifier.dart';
+import '../../../../../Widgets/g_widgets.dart';
 
 class LeftTextAreaClass extends StatefulWidget {
   const LeftTextAreaClass({Key? key}) : super(key: key);

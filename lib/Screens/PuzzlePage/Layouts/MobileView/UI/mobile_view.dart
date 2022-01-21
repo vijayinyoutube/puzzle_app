@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
+
+import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '../Widgets/1body.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MobileViewLayout extends StatefulWidget {
+  const MobileViewLayout({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MobileViewLayout> createState() => _MobileViewLayoutState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MobileViewLayoutState extends State<MobileViewLayout> {
   @override
   void initState() {
     homePageNotifier.setArray();

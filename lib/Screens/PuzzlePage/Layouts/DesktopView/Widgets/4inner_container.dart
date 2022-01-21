@@ -1,8 +1,8 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../Declarations/Constants/constants.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
+import '../../../../../Declarations/Constants/constants.dart';
+import '../../../../../ValueNotifier/homepage_notifier.dart';
 import 'package:delayed_display/delayed_display.dart';
 
 class BuildContainerClass extends StatefulWidget {
