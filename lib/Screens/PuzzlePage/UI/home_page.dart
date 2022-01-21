@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: ResponsiveLayoutClass(
-        mobileView: MobileViewLayout(),
+        mobileView:  MobileViewLayout(),
         tabletView: DeskTopViewLayout(),
         desktopView: DeskTopViewLayout(),
       ),

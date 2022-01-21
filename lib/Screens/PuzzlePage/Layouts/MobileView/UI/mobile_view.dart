@@ -20,7 +20,7 @@ class _MobileViewLayoutState extends State<MobileViewLayout> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body:  BuildBodyClass(),
+      body: BuildBodyClass(),
     );
   }
 }

@@ -1,16 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:odometer/odometer.dart';
 import 'package:puzzle_app/Declarations/Images/image_files.dart';
-import 'package:puzzle_app/Widgets/g_widgets.dart';
-import 'package:day_night_switcher/day_night_switcher.dart';
-
-import '../../../../../Declarations/Constants/constants.dart';
+import 'package:puzzle_app/Widgets/1g_widgets.dart';
 import '../../../../../Repository/homepage.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
+import '../../../../../Widgets/day_night_switcher.dart';
+import '../../../../../Widgets/moves_animtion.dart';
+import '../../../../../Widgets/puzzle_widget.dart';
 import '2left_area_text.dart';
-import '3puzzle_container.dart';
 
 class BuildBodyClass extends StatelessWidget {
   const BuildBodyClass({Key? key}) : super(key: key);
@@ -96,9 +93,9 @@ class _BottomInfoState extends State<BottomInfo> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    buildDarkThemeToggleBtn(),
-                    buildMoveAnimationText(),
+                  children: const [
+                    DayNightSwitch(),
+                    AnimatedMoves(),
                   ],
                 ),
               );
@@ -106,48 +103,4 @@ class _BottomInfoState extends State<BottomInfo> {
       },
     );
   }
-
-  Widget buildDarkThemeToggleBtn() => FutureBuilder(
-      future: HomePageRepo().getTheme(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return SizedBox(
-            width: 65,
-            child: DayNightSwitcher(
-              isDarkModeEnabled: isDarkMode,
-              onStateChanged: (bool value) {
-                setState(() {
-                  isDarkMode = value;
-                  HomePageRepo().saveTheme(isDarkMode);
-                  HomePageRepo().getTheme();
-                });
-              },
-            ),
-          );
-        } else {
-          return const CircularProgressIndicator();
-        }
-      });
-
-  Widget buildMoveAnimationText() => Row(
-        children: [
-          AnimatedSlideOdometerNumber(
-            numberTextStyle: TextStyle(
-              fontSize: 20,
-              color: secondaryColor,
-            ),
-            odometerNumber: OdometerNumber(homePageNotifier.moves.value),
-            duration: const Duration(milliseconds: 500),
-            letterWidth: 12,
-          ),
-          const WidthSpacer(myWidth: 5.5),
-          Text(
-            "moves",
-            style: TextStyle(
-              color: secondaryColor,
-              fontSize: 20,
-            ),
-          ),
-        ],
-      );
 }
