@@ -6,7 +6,6 @@ import 'package:hexcolor/hexcolor.dart';
 import '../Declarations/Constants/constants.dart';
 import '../Repository/homepage.dart';
 import '../ValueNotifier/homepage_notifier.dart';
-
 class BuildPuzzleContainer extends StatelessWidget {
   const BuildPuzzleContainer({Key? key}) : super(key: key);
 
@@ -18,18 +17,11 @@ class BuildPuzzleContainer extends StatelessWidget {
           return ValueListenableBuilder<List<int>>(
               valueListenable: homePageNotifier.myArray,
               builder: (context, value, _) {
-                return const PuzzleClass();
+                return  buildPuzzle(context);
               });
         });
   }
-}
-
-class PuzzleClass extends StatelessWidget {
-  const PuzzleClass({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
+  Widget buildPuzzle(BuildContext context)=>Card(
       elevation: 30.0,
       shape: RoundedRectangleBorder(borderRadius: kBorder),
       child: Container(
@@ -53,8 +45,9 @@ class PuzzleClass extends StatelessWidget {
         ),
       ),
     );
-  }
 }
+
+
 
 class BuildContainerClass extends StatefulWidget {
   const BuildContainerClass({Key? key, required this.value}) : super(key: key);

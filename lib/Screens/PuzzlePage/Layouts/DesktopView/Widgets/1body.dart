@@ -1,7 +1,11 @@
+import 'package:confetti/confetti.dart';
+import 'package:delayed_display/delayed_display.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:puzzle_app/Declarations/Images/image_files.dart';
 import 'package:puzzle_app/Widgets/1g_widgets.dart';
+import '../../../../../Declarations/Constants/constants.dart';
 import '../../../../../Repository/homepage.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '../../../../../Widgets/day_night_switcher.dart';
@@ -82,24 +86,19 @@ class _BottomInfoState extends State<BottomInfo> {
     return ValueListenableBuilder<int>(
       valueListenable: homePageNotifier.n,
       builder: (context, value, _) {
-        return ValueListenableBuilder<int>(
-            valueListenable: homePageNotifier.moves,
-            builder: (context, value, _) {
-              return SizedBox(
-                width: (homePageNotifier.n.value * 100 +
-                        HomePageRepo()
-                            .getPaddingSPace(homePageNotifier.n.value))
-                    .toDouble(),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    DayNightSwitch(),
-                    AnimatedMoves(),
-                  ],
-                ),
-              );
-            });
+        return SizedBox(
+          width: (homePageNotifier.n.value * 100 +
+                  HomePageRepo().getPaddingSPace(homePageNotifier.n.value))
+              .toDouble(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              DayNightSwitch(),
+              AnimatedMoves(),
+            ],
+          ),
+        );
       },
     );
   }

@@ -9,26 +9,30 @@ class AnimatedMoves extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        AnimatedSlideOdometerNumber(
-          numberTextStyle: TextStyle(
-            fontSize: 20,
-            color: secondaryColor,
-          ),
-          odometerNumber: OdometerNumber(homePageNotifier.moves.value),
-          duration: const Duration(milliseconds: 500),
-          letterWidth: 12,
-        ),
-        const WidthSpacer(myWidth: 5.5),
-        Text(
-          "moves",
-          style: TextStyle(
-            color: secondaryColor,
-            fontSize: 20,
-          ),
-        ),
-      ],
-    );
+    return ValueListenableBuilder<int>(
+        valueListenable: homePageNotifier.moves,
+        builder: (context, value, _) {
+          return Row(
+            children: [
+              AnimatedSlideOdometerNumber(
+                numberTextStyle: TextStyle(
+                  fontSize: 20,
+                  color: secondaryColor,
+                ),
+                odometerNumber: OdometerNumber(homePageNotifier.moves.value),
+                duration: const Duration(milliseconds: 500),
+                letterWidth: 12,
+              ),
+              const WidthSpacer(myWidth: 5.5),
+              Text(
+                "moves",
+                style: TextStyle(
+                  color: secondaryColor,
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          );
+        });
   }
 }
