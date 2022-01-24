@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../BreakPoints/breakpoints.dart';
 import '../../../../../Declarations/Constants/constants.dart';
 import '../../../../../Declarations/Images/image_files.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
@@ -26,12 +27,13 @@ class LeftTextAreaClass extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 2, child: BuildImage(path: images[0])),
+                const HeightSpacer(myHeight: 50.00),
+            // Expanded(flex: 2, child: BuildImage(path: images[0])),
             Expanded(
               flex: 6,
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 100, vertical: 50),
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -42,17 +44,33 @@ class LeftTextAreaClass extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                     
                         const AnimatedTextClass(),
                         const HeightSpacer(myHeight: 10.00),
                         const TweenAnimationClass(),
                         const HeightSpacer(myHeight: 15.00),
-                        Row(
-                          children: const [
-                            ShuffleBtn(containerSize: 175, myFontSize: 20 ,),
-                            WidthSpacer(myWidth: 15.00),
-                            LevelBtn(),
-                          ],
-                        )
+                        ResponsiveLayoutClass.isDesktop(context)
+                            ? Row(
+                                children: const [
+                                  ShuffleBtn(
+                                    containerSize: 175,
+                                    myFontSize: 20,
+                                  ),
+                                  WidthSpacer(myWidth: 15.00),
+                                  LevelBtn(),
+                                ],
+                              )
+                            : Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  ShuffleBtn(
+                                    containerSize: 175,
+                                    myFontSize: 20,
+                                  ),
+                                  HeightSpacer(myHeight: 15.00),
+                                  LevelBtn(),
+                                ],
+                              )
                       ],
                     ),
                   ],

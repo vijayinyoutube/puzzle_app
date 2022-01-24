@@ -31,7 +31,7 @@ class BuildBodyClass extends StatelessWidget {
           children: [
             Positioned(
               top: MediaQuery.of(context).size.height - 200,
-              right: -20,
+              right: -0,
               child: Image.asset(
                 images[5],
                 height: 200,
