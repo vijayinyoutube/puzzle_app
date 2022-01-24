@@ -30,7 +30,7 @@ class _TabWidgetState extends State<TabWidget>
     return TabBar(
       indicatorPadding: const EdgeInsets.symmetric(horizontal: 60, vertical: 7),
       padding: kPadding,
-      unselectedLabelColor: Colors.grey,
+      unselectedLabelColor: Colors.grey.withOpacity(0.75),
       labelColor: Theme.of(context).brightness.name == "dark"
           ? secondaryColor
           : hoverColor,

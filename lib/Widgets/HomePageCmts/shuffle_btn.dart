@@ -4,21 +4,24 @@ import '../../ValueNotifier/homepage_notifier.dart';
 import '../1g_widgets.dart';
 
 class ShuffleBtn extends StatelessWidget {
-  const ShuffleBtn({Key? key}) : super(key: key);
+  const ShuffleBtn({Key? key, required this.containerSize, required this.myFontSize}) : super(key: key);
+
+  final double containerSize;
+  final double myFontSize;
 
   @override
   Widget build(BuildContext context) {
     return BuildBtn(
-        width: 175,
+        width: containerSize,
         child1: const Icon(
           Icons.refresh,
           color: Colors.white,
         ),
         child2: Padding(
           padding: kPadding * 1.5,
-          child: const Text(
+          child:  Text(
             "Shuffle",
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(color: Colors.white, fontSize: myFontSize),
           ),
         ),
         containerColor: secondaryColor,

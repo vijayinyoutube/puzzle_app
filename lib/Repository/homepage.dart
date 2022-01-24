@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Declarations/Constants/constants.dart';
-import '../ValueNotifier/homepage_notifier.dart';
 import '../main.dart';
 
 class HomePageRepo {

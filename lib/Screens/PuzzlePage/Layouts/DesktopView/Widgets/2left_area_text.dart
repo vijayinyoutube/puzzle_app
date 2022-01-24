@@ -48,7 +48,7 @@ class LeftTextAreaClass extends StatelessWidget {
                         const HeightSpacer(myHeight: 15.00),
                         Row(
                           children: const [
-                            ShuffleBtn(),
+                            ShuffleBtn(containerSize: 175, myFontSize: 20 ,),
                             WidthSpacer(myWidth: 15.00),
                             LevelBtn(),
                           ],
