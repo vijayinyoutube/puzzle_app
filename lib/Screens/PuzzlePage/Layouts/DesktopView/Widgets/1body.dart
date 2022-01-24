@@ -59,9 +59,9 @@ class BuildBodyClass extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    BuildPuzzleContainer(),
+                    BuildPuzzleContainer(containerWidth: 100,),
                     HeightSpacer(myHeight: 10),
-                    BottomInfo(),
+                    BottomInfo(containerWidth: 100,),
                   ],
                 ),
               )
@@ -73,33 +73,3 @@ class BuildBodyClass extends StatelessWidget {
   }
 }
 
-class BottomInfo extends StatefulWidget {
-  const BottomInfo({Key? key}) : super(key: key);
-
-  @override
-  State<BottomInfo> createState() => _BottomInfoState();
-}
-
-class _BottomInfoState extends State<BottomInfo> {
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder<int>(
-      valueListenable: homePageNotifier.n,
-      builder: (context, value, _) {
-        return SizedBox(
-          width: (homePageNotifier.n.value * 100 +
-                  HomePageRepo().getPaddingSPace(homePageNotifier.n.value))
-              .toDouble(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              DayNightSwitch(),
-              AnimatedMoves(),
-            ],
-          ),
-        );
-      },
-    );
-  }
-}

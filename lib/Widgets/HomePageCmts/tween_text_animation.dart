@@ -36,7 +36,7 @@ class _TweenAnimationClassState extends State<TweenAnimationClass>
   @override
   Widget build(BuildContext context) {
     return Text(
-      "#PuzzleChallenge",
+      "#PuzzleHack",
       style: TextStyle(
         color: colorAnimation.value,
         fontSize: 50,
