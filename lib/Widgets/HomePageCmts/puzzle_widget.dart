@@ -3,9 +3,9 @@ import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import '../Declarations/Constants/constants.dart';
-import '../Repository/homepage.dart';
-import '../ValueNotifier/homepage_notifier.dart';
+import '../../Declarations/Constants/constants.dart';
+import '../../Repository/homepage.dart';
+import '../../ValueNotifier/homepage_notifier.dart';
 class BuildPuzzleContainer extends StatelessWidget {
   const BuildPuzzleContainer({Key? key}) : super(key: key);
 

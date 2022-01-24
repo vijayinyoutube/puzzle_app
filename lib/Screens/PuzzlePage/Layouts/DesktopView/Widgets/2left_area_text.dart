@@ -3,10 +3,10 @@ import '../../../../../Declarations/Constants/constants.dart';
 import '../../../../../Declarations/Images/image_files.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '../../../../../Widgets/1g_widgets.dart';
-import '../../../../../Widgets/animated_text.dart';
-import '../../../../../Widgets/level_dropdown_btn.dart';
-import '../../../../../Widgets/shuffle_btn.dart';
-import '../../../../../Widgets/tween_text_animation.dart';
+import '../../../../../Widgets/HomePageCmts/animated_text.dart';
+import '../../../../../Widgets/HomePageCmts/level_dropdown_btn.dart';
+import '../../../../../Widgets/HomePageCmts/shuffle_btn.dart';
+import '../../../../../Widgets/HomePageCmts/tween_text_animation.dart';
 
 class LeftTextAreaClass extends StatelessWidget {
   const LeftTextAreaClass({Key? key}) : super(key: key);

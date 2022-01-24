@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../Declarations/Constants/constants.dart';
-import '../ValueNotifier/homepage_notifier.dart';
-import '1g_widgets.dart';
+import '../../Declarations/Constants/constants.dart';
+import '../../ValueNotifier/homepage_notifier.dart';
+import '../1g_widgets.dart';
 
 class ShuffleBtn extends StatelessWidget {
   const ShuffleBtn({Key? key}) : super(key: key);

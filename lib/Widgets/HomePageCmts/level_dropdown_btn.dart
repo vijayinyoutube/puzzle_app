@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../Declarations/Constants/constants.dart';
-import '../Repository/homepage.dart';
-import '../ValueNotifier/homepage_notifier.dart';
-import '1g_widgets.dart';
+import '../../Declarations/Constants/constants.dart';
+import '../../Repository/homepage.dart';
+import '../../ValueNotifier/homepage_notifier.dart';
+import '../1g_widgets.dart';
+
 
 class LevelBtn extends StatelessWidget {
   const LevelBtn({Key? key}) : super(key: key);
