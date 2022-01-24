@@ -15,7 +15,7 @@ class _TabWidgetState extends State<TabWidget>
 
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this,initialIndex: 1);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
     super.initState();
   }
 
@@ -55,6 +55,9 @@ class _TabWidgetState extends State<TabWidget>
     );
   }
 
-  renderPuzzles() =>
+  renderPuzzles() {
+    if (_tabController.indexIsChanging) {
       homePageNotifier.updateNVal(ValueNotifier(_tabController.index + 3));
+    }
+  }
 }

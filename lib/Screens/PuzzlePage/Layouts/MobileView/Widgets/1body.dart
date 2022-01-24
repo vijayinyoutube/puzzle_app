@@ -29,7 +29,7 @@ class BuildBodyClass extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: const [
                 TabWidget(),
-                 HeightSpacer(myHeight: 10),
+                HeightSpacer(myHeight: 10),
                 BuildPuzzleContainer(
                   containerWidth: 75,
                 ),
