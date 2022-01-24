@@ -6,8 +6,12 @@ import 'package:hexcolor/hexcolor.dart';
 import '../../Declarations/Constants/constants.dart';
 import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
+
 class BuildPuzzleContainer extends StatelessWidget {
-  const BuildPuzzleContainer({Key? key}) : super(key: key);
+  const BuildPuzzleContainer({Key? key, required this.containerWidth})
+      : super(key: key);
+
+  final int containerWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -17,44 +21,44 @@ class BuildPuzzleContainer extends StatelessWidget {
           return ValueListenableBuilder<List<int>>(
               valueListenable: homePageNotifier.myArray,
               builder: (context, value, _) {
-                return  buildPuzzle(context);
+                return buildPuzzle(context);
               });
         });
   }
-  Widget buildPuzzle(BuildContext context)=>Card(
-      elevation: 30.0,
-      shape: RoundedRectangleBorder(borderRadius: kBorder),
-      child: Container(
-        alignment: Alignment.center,
-        width: (100 * homePageNotifier.n.value.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
-        height: (100 * homePageNotifier.n.value.toDouble() +
-            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent),
-          borderRadius: kBorder,
-          color: Theme.of(context).brightness.name == "light"
-              ? HexColor("#fafafa")
-              : HexColor("#303030"),
+
+  Widget buildPuzzle(BuildContext context) => Card(
+        elevation: 30.0,
+        shape: RoundedRectangleBorder(borderRadius: kBorder),
+        child: Container(
+          alignment: Alignment.center,
+          width: (containerWidth * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+          height: (containerWidth * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.blueAccent),
+            borderRadius: kBorder,
+            color: Theme.of(context).brightness.name == "light"
+                ? HexColor("#fafafa")
+                : HexColor("#303030"),
+          ),
+          child: Wrap(
+            children: [
+              for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
+                BuildContainerClass(value: homePageNotifier.myArray.value[i],containerWidth: containerWidth,),
+            ],
+          ),
         ),
-        child: Wrap(
-          children: [
-            for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
-              BuildContainerClass(value: homePageNotifier.myArray.value[i]),
-          ],
-        ),
-      ),
-    );
+      );
 }
 
-
-
 class BuildContainerClass extends StatefulWidget {
-  const BuildContainerClass({Key? key, required this.value}) : super(key: key);
+  const BuildContainerClass({Key? key, required this.value, required this.containerWidth}) : super(key: key);
 
   final int value;
   static int zeroIndex = homePageNotifier.myArray.value.indexOf(0);
   static int hoverIndex = 0;
+  final int containerWidth;
 
   @override
   State<BuildContainerClass> createState() => _BuildContainerClassState();
@@ -121,8 +125,8 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
                   milliseconds:
                       homePageNotifier.myArray.value.indexOf(index) * 50),
               child: Container(
-                width: 100,
-                height: 100,
+                width: widget.containerWidth.toDouble(),
+                height: widget.containerWidth.toDouble(),
                 child: Center(
                     child: index != 0
                         ? Text(
