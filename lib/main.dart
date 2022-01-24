@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Declarations/Constants/constants.dart';
-import 'Screens/UI/home_page.dart';
+import 'Screens/PuzzlePage/UI/home_page.dart';
 
 void main() {
   runApp(const MyApp());

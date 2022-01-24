@@ -1,16 +1,59 @@
 import 'package:confetti/confetti.dart';
+import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../../Declarations/Constants/constants.dart';
-import '../../ValueNotifier/homepage_notifier.dart';
-import 'package:delayed_display/delayed_display.dart';
+import 'package:hexcolor/hexcolor.dart';
+import '../Declarations/Constants/constants.dart';
+import '../Repository/homepage.dart';
+import '../ValueNotifier/homepage_notifier.dart';
+class BuildPuzzleContainer extends StatelessWidget {
+  const BuildPuzzleContainer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<int>(
+        valueListenable: homePageNotifier.n,
+        builder: (context, value, _) {
+          return ValueListenableBuilder<List<int>>(
+              valueListenable: homePageNotifier.myArray,
+              builder: (context, value, _) {
+                return  buildPuzzle(context);
+              });
+        });
+  }
+  Widget buildPuzzle(BuildContext context)=>Card(
+      elevation: 30.0,
+      shape: RoundedRectangleBorder(borderRadius: kBorder),
+      child: Container(
+        alignment: Alignment.center,
+        width: (100 * homePageNotifier.n.value.toDouble() +
+            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+        height: (100 * homePageNotifier.n.value.toDouble() +
+            HomePageRepo().getPaddingSPace(homePageNotifier.n.value)),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blueAccent),
+          borderRadius: kBorder,
+          color: Theme.of(context).brightness.name == "light"
+              ? HexColor("#fafafa")
+              : HexColor("#303030"),
+        ),
+        child: Wrap(
+          children: [
+            for (var i = 0; i < homePageNotifier.myArray.value.length; i++)
+              BuildContainerClass(value: homePageNotifier.myArray.value[i]),
+          ],
+        ),
+      ),
+    );
+}
+
+
 
 class BuildContainerClass extends StatefulWidget {
   const BuildContainerClass({Key? key, required this.value}) : super(key: key);
 
   final int value;
   static int zeroIndex = homePageNotifier.myArray.value.indexOf(0);
-
   static int hoverIndex = 0;
 
   @override
@@ -19,7 +62,7 @@ class BuildContainerClass extends StatefulWidget {
 
 class _BuildContainerClassState extends State<BuildContainerClass> {
   late ConfettiController _controller;
- 
+
   @override
   void initState() {
     super.initState();
@@ -44,7 +87,6 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
   }
 
   Widget buildColorContainer(int index, BuildContext context) => Padding(
-    
         padding: kPadding / 5,
         child: MouseRegion(
           onEnter: (PointerEvent event) {
@@ -67,14 +109,11 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
                 homePageNotifier.updateArray(
                     BuildContainerClass.zeroIndex, index);
               }
-              // print(homePageNotifier.myArray.value);
-              // print(homePageNotifier.newArray);
               if (listEquals(homePageNotifier.myArray.value,
                       homePageNotifier.newArray) &&
-                 homePageNotifier. canAnimate == true) {
-                print("SOLVED");
+                  homePageNotifier.canAnimate == true) {
                 _controller.play();
-               homePageNotifier. canAnimate = false;
+                homePageNotifier.canAnimate = false;
               }
             },
             child: DelayedDisplay(
