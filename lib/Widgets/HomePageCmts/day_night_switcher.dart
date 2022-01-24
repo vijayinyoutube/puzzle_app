@@ -1,8 +1,10 @@
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 
-import '../Declarations/Constants/constants.dart';
-import '../Repository/homepage.dart';
+import '../../Declarations/Constants/constants.dart';
+import '../../Repository/homepage.dart';
+
+
 
 class DayNightSwitch extends StatefulWidget {
   const DayNightSwitch({Key? key}) : super(key: key);

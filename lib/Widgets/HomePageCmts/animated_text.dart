@@ -1,9 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
-import '../Declarations/Constants/constants.dart';
-import '../Repository/homepage.dart';
-import '1g_widgets.dart';
+import '../../Declarations/Constants/constants.dart';
+import '../../Repository/homepage.dart';
+import '../1g_widgets.dart';
 
 class AnimatedTextClass extends StatelessWidget {
   const AnimatedTextClass({Key? key}) : super(key: key);

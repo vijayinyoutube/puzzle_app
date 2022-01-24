@@ -8,9 +8,9 @@ import 'package:puzzle_app/Widgets/1g_widgets.dart';
 import '../../../../../Declarations/Constants/constants.dart';
 import '../../../../../Repository/homepage.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
-import '../../../../../Widgets/day_night_switcher.dart';
-import '../../../../../Widgets/moves_animtion.dart';
-import '../../../../../Widgets/puzzle_widget.dart';
+import '../../../../../Widgets/HomePageCmts/day_night_switcher.dart';
+import '../../../../../Widgets/HomePageCmts/moves_animtion.dart';
+import '../../../../../Widgets/HomePageCmts/puzzle_widget.dart';
 import '2left_area_text.dart';
 
 class BuildBodyClass extends StatelessWidget {

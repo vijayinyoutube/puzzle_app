@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Declarations/Constants/constants.dart';
+import '../../Declarations/Constants/constants.dart';
 
 class TweenAnimationClass extends StatefulWidget {
   const TweenAnimationClass({Key? key}) : super(key: key);
