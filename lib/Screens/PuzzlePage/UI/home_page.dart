@@ -18,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return const Scaffold(
       body: ResponsiveLayoutClass(
         mobileView:  MobileViewLayout(),
-        tabletView: DeskTopViewLayout(),
+        tabletView: MobileViewLayout(),
         desktopView: DeskTopViewLayout(),
       ),
     );

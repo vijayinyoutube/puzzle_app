@@ -5,24 +5,28 @@ import '../../Repository/homepage.dart';
 import '../../ValueNotifier/homepage_notifier.dart';
 import '../1g_widgets.dart';
 
-
 class LevelBtn extends StatelessWidget {
   const LevelBtn({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BuildBtn(
-        width: 250,
-        child1: const Padding(
-          padding: EdgeInsets.only(right: 9.0),
-          child: Text(
-            "Level",
-            style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-        ),
-        child2: Padding(padding: kPadding * 0.32, child: buildDropDownMenu()),
-        containerColor: primaryColor,
-        myFunction: () => {});
+    return ValueListenableBuilder<int>(
+        valueListenable: homePageNotifier.n,
+        builder: (context, value, _) {
+          return BuildBtn(
+              width: 250,
+              child1: const Padding(
+                padding: EdgeInsets.only(right: 9.0),
+                child: Text(
+                  "Level",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+              child2:
+                  Padding(padding: kPadding * 0.32, child: buildDropDownMenu()),
+              containerColor: primaryColor,
+              myFunction: () => {});
+        });
   }
 
   Widget buildDropDownMenu() => DropdownButton<String>(

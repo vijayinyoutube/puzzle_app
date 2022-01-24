@@ -15,7 +15,7 @@ class _TabWidgetState extends State<TabWidget>
 
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this,initialIndex: 1);
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
     super.initState();
   }
 
@@ -30,7 +30,7 @@ class _TabWidgetState extends State<TabWidget>
     return TabBar(
       indicatorPadding: const EdgeInsets.symmetric(horizontal: 60, vertical: 7),
       padding: kPadding,
-      unselectedLabelColor: Colors.grey,
+      unselectedLabelColor: Colors.grey.withOpacity(0.75),
       labelColor: Theme.of(context).brightness.name == "dark"
           ? secondaryColor
           : hoverColor,
@@ -55,6 +55,9 @@ class _TabWidgetState extends State<TabWidget>
     );
   }
 
-  renderPuzzles() =>
+  renderPuzzles() {
+    if (_tabController.indexIsChanging) {
       homePageNotifier.updateNVal(ValueNotifier(_tabController.index + 3));
+    }
+  }
 }

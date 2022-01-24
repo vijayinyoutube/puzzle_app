@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:puzzle_app/Declarations/Constants/constants.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '../Widgets/1body.dart';
 
@@ -18,8 +19,14 @@ class _MobileViewLayoutState extends State<MobileViewLayout> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: BuildBodyClass(),
+    return  Scaffold(
+      body: const BuildBodyClass(),
+       floatingActionButton: FloatingActionButton(
+        onPressed: () =>(homePageNotifier.setArray()),
+        backgroundColor: Theme.of(context).brightness.name == "dark"
+          ?secondaryColor: primaryColor,
+        child: const Icon(Icons.refresh),
+      ),
     );
   }
 }

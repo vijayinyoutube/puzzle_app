@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:puzzle_app/Declarations/Images/image_files.dart';
 import 'package:puzzle_app/Widgets/1g_widgets.dart';
+import '../../../../../BreakPoints/breakpoints.dart';
 import '../../../../../Declarations/Constants/constants.dart';
 import '../../../../../Repository/homepage.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
@@ -31,20 +32,31 @@ class BuildBodyClass extends StatelessWidget {
           child: Stack(
         alignment: Alignment.center,
         children: [
+          ResponsiveLayoutClass.isDesktop(context)
+              ? Positioned(
+                  top: -100,
+                  left: 470,
+                  child: Image.asset(
+                    images[3],
+                    height: 600,
+                  ),
+                )
+              : const SizedBox(),
           Positioned(
-            top: -100,
-            left: 470,
-            child: Image.asset(
-              images[3],
-              height: 600,
-            ),
-          ),
+                  bottom: -120,
+                  right: -0,
+                  child: Image.asset(
+                    images[4],
+                    height: 295,
+                  ),
+                )
+             ,
           Positioned(
-            bottom: -0,
-            right: -0,
+            top: -0,
+            left: -0,
             child: Image.asset(
-              images[4],
-              height: 295,
+              images[0],
+              height: 100,
             ),
           ),
           Row(
@@ -54,14 +66,18 @@ class BuildBodyClass extends StatelessWidget {
               const LeftTextAreaClass(),
               Padding(
                 padding: const EdgeInsets.only(
-                    left: 25, right: 120, top: 30, bottom: 10),
+                    left: 0, right: 120, top: 30, bottom: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    BuildPuzzleContainer(containerWidth: 100,),
+                    BuildPuzzleContainer(
+                      containerWidth: 100,
+                    ),
                     HeightSpacer(myHeight: 10),
-                    BottomInfo(containerWidth: 100,),
+                    BottomInfo(
+                      containerWidth: 100,
+                    ),
                   ],
                 ),
               )
@@ -72,4 +88,3 @@ class BuildBodyClass extends StatelessWidget {
     );
   }
 }
-

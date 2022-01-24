@@ -29,8 +29,8 @@ class _TweenAnimationClassState extends State<TweenAnimationClass>
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
