@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../Declarations/Constants/constants.dart';
+import '../../Repository/homepage.dart';
 
 class TweenAnimationClass extends StatefulWidget {
   const TweenAnimationClass({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class _TweenAnimationClassState extends State<TweenAnimationClass>
   @override
   Widget build(BuildContext context) {
     return Text(
-      "#PuzzleHack",
+      HomePageRepo().contestName,
       style: TextStyle(
         color: colorAnimation.value,
         fontSize: 50,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:puzzle_app/Declarations/Constants/constants.dart';
+import 'package:puzzle_app/Repository/homepage.dart';
 import '../../../../../Declarations/Images/image_files.dart';
 import '../../../../../ValueNotifier/homepage_notifier.dart';
 import '../../../../../Widgets/1g_widgets.dart';
@@ -61,7 +62,7 @@ class BuildBodyClass extends StatelessWidget {
                 const FlutterLogo(size: 50),
                 const HeightSpacer(myHeight: 5.5),
                 Text(
-                  "#PuzzleHack",
+                  HomePageRepo().contestName,
                   style: TextStyle(
                       fontSize: 30,
                       color: Theme.of(context).brightness.name == "dark"

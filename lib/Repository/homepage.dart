@@ -5,6 +5,8 @@ import '../Declarations/Constants/constants.dart';
 import '../main.dart';
 
 class HomePageRepo {
+  String contestName = "#PuzzleHack";
+
   Map<int, String> levels = {
     3: 'Beginner',
     4: 'Intermediate',
