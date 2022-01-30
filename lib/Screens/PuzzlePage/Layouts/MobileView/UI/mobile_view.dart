@@ -11,15 +11,15 @@ class MobileViewLayout extends StatefulWidget {
   State<MobileViewLayout> createState() => _MobileViewLayoutState();
 }
 
-class _MobileViewLayoutState extends State<MobileViewLayout> with TickerProviderStateMixin{
-
-   late Animation colorAnimation;
+class _MobileViewLayoutState extends State<MobileViewLayout>
+    with TickerProviderStateMixin {
+  late Animation colorAnimation;
   late AnimationController controller;
   @override
   void initState() {
     homePageNotifier.setArray();
-     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     colorAnimation = ColorTween(begin: primaryColor, end: secondaryColor)
         .animate(controller);
     controller.addListener(() {
@@ -30,7 +30,7 @@ class _MobileViewLayoutState extends State<MobileViewLayout> with TickerProvider
     super.initState();
   }
 
- @override
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -38,7 +38,7 @@ class _MobileViewLayoutState extends State<MobileViewLayout> with TickerProvider
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: AnimatedBackground(
           behaviour: RandomParticleBehaviour(
             options: ParticleOptions(
@@ -46,16 +46,19 @@ class _MobileViewLayoutState extends State<MobileViewLayout> with TickerProvider
                 spawnMinSpeed: 10.00,
                 particleCount: 68,
                 spawnMaxSpeed: 50,
+                minOpacity: 0.3,
+                spawnOpacity: 0.4,
                 baseColor: Theme.of(context).brightness.name == "light"
                     ? colorAnimation.value
                     : secondaryColor),
           ),
           vsync: this,
           child: const BuildBodyClass()),
-       floatingActionButton: FloatingActionButton(
-        onPressed: () =>(homePageNotifier.setArray()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => (homePageNotifier.setArray()),
         backgroundColor: Theme.of(context).brightness.name == "dark"
-          ?secondaryColor: primaryColor,
+            ? secondaryColor
+            : primaryColor,
         child: const Icon(Icons.refresh),
       ),
     );

@@ -21,7 +21,7 @@ class _DeskTopViewLayoutState extends State<DeskTopViewLayout>
   void initState() {
     homePageNotifier.setArray();
     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     colorAnimation = ColorTween(begin: primaryColor, end: secondaryColor)
         .animate(controller);
     controller.addListener(() {
@@ -48,6 +48,8 @@ class _DeskTopViewLayoutState extends State<DeskTopViewLayout>
                 spawnMinSpeed: 10.00,
                 particleCount: 68,
                 spawnMaxSpeed: 50,
+                minOpacity: 0.3,
+                spawnOpacity: 0.4,
                 baseColor: Theme.of(context).brightness.name == "light"
                     ? colorAnimation.value
                     : secondaryColor),
