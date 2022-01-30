@@ -53,6 +53,8 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
   shared_preferences: ^2.0.12
   confetti: ^0.6.0
   delayed_display: ^2.0.0
+  animated_background: ^2.0.0
+  flutter_glow: ^0.2.0
 ```
 
 
