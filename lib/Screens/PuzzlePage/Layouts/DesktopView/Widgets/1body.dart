@@ -25,8 +25,11 @@ class BuildBodyClass extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: Theme.of(context).brightness.name == "light"
-                  ? [HexColor("9ED1FF"), HexColor("FFFFFF")]
-                  : [HexColor("#01407a"), HexColor("000000")])),
+                  ? [HexColor("9ED1FF").withOpacity(0.9), HexColor("FFFFFF")]
+                  : [
+                      HexColor("#01407a").withOpacity(0.9),
+                      HexColor("000000")
+                    ])),
       height: double.infinity,
       child: SingleChildScrollView(
           child: Stack(
@@ -43,14 +46,13 @@ class BuildBodyClass extends StatelessWidget {
                 )
               : const SizedBox(),
           Positioned(
-                  bottom: -120,
-                  right: -0,
-                  child: Image.asset(
-                    images[4],
-                    height: 295,
-                  ),
-                )
-             ,
+            bottom: -120,
+            right: -0,
+            child: Image.asset(
+              images[4],
+              height: 295,
+            ),
+          ),
           Positioned(
             top: -0,
             left: -0,
@@ -65,8 +67,11 @@ class BuildBodyClass extends StatelessWidget {
             children: [
               const LeftTextAreaClass(),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 0, right: 120, top: 30, bottom: 10),
+                padding: ResponsiveLayoutClass.isTablet(context)
+                    ? const EdgeInsets.only(
+                        left: 0, right: 10, top: 30, bottom: 10)
+                    : const EdgeInsets.only(
+                        left: 0, right: 120, top: 30, bottom: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -19,9 +19,9 @@ class BuildBodyClass extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: Theme.of(context).brightness.name == "light"
-                  ? [HexColor("9ED1FF"), HexColor("FFFFFF")]
-                  : [HexColor("#01407a"), HexColor("000000")])),
+             colors: Theme.of(context).brightness.name == "light"
+                  ? [HexColor("9ED1FF").withOpacity(0.9), HexColor("FFFFFF")]
+                  : [HexColor("#01407a").withOpacity(0.9), HexColor("000000")])),
       height: double.infinity,
       width: double.infinity,
       child: SingleChildScrollView(
