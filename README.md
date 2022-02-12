@@ -59,10 +59,17 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
   
 ## Sample results
 
-  <div align="center">
-    <img src="https://user-images.githubusercontent.com/58719230/153724457-b65af003-23a2-4355-9d2d-d8a9715cf21e.png" width="250" height="500"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/58719230/153724647-c5a119d6-364b-4929-8d56-7389ff08bb0b.png" width="250" height="500">
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/58719230/153724457-b65af003-23a2-4355-9d2d-d8a9715cf21e.png" width="250" height="500"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/58719230/153724647-c5a119d6-364b-4929-8d56-7389ff08bb0b.png" width="250" height="500">  
+</div>
+    
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/58719230/153725272-26cdc210-4716-4417-878b-522fe39f3186.png" width="350" height="550"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/58719230/153725138-989acaab-2e3f-455f-881d-96adc1c26076.png"  width="350" height="550">  
+</div>
   
-  </div>
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/58719230/153725325-0950a084-8985-47cf-b5ca-9f4ed97ce747.png" width="550" height="355"> 
+</div>
 
 
 ## License
