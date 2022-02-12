@@ -56,6 +56,23 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
   animated_background: ^2.0.0
   flutter_glow: ^0.2.0
 ```
+  
+  
+## Inspiration
+
+## What it does
+
+## How we built it
+
+## Challenges we ran into
+
+## Accomplishments that we're proud of
+
+## What we learned
+
+## What's next for PuzzHack
+  
+  
 
 
 ## License
