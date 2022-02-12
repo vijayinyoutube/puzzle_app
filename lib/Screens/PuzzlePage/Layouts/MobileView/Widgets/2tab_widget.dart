@@ -28,7 +28,7 @@ class _TabWidgetState extends State<TabWidget>
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      indicatorPadding: const EdgeInsets.symmetric(horizontal: 60, vertical: 7),
+      indicatorPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
       padding: kPadding,
       unselectedLabelColor: Colors.grey.withOpacity(0.75),
       labelColor: Theme.of(context).brightness.name == "dark"
