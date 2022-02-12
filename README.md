@@ -64,7 +64,7 @@ Visit my channel 👉 : https://www.youtube.com/channel/UCBC_Z7jla1GSITcqLKAtPxQ
 </div>
     
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/58719230/153725272-26cdc210-4716-4417-878b-522fe39f3186.png" width="350" height="550"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/58719230/153725138-989acaab-2e3f-455f-881d-96adc1c26076.png"  width="350" height="550">  
+    <img src="https://user-images.githubusercontent.com/58719230/153725272-26cdc210-4716-4417-878b-522fe39f3186.png" width="350" height="500"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://user-images.githubusercontent.com/58719230/153725138-989acaab-2e3f-455f-881d-96adc1c26076.png"  width="350" height="500">  
 </div>
   
 <div align="center">
