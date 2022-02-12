@@ -125,8 +125,10 @@ class _BuildContainerClassState extends State<BuildContainerClass> {
                   milliseconds:
                       homePageNotifier.myArray.value.indexOf(index) * 50),
               child: Container(
-                width: widget.containerWidth.toDouble(),
-                height: widget.containerWidth.toDouble(),
+                width: MediaQuery.of(context).size.width<=420?(((widget.containerWidth * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value))/(homePageNotifier.n.value) )-(homePageNotifier.n.value*4)):widget.containerWidth.toDouble(),
+                height: MediaQuery.of(context).size.width<=420?(((widget.containerWidth * homePageNotifier.n.value.toDouble() +
+              HomePageRepo().getPaddingSPace(homePageNotifier.n.value))/(homePageNotifier.n.value))-(homePageNotifier.n.value*4)):widget.containerWidth.toDouble(),
                 child: Center(
                     child: index != 0
                         ? Text(
